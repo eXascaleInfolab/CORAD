@@ -565,9 +565,10 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
     atoms_coded_tricklets = [{} for i in range(len(ts))]
     corr_coded_tricklets = [{} for i in range(len(ts))]
 
-    print('corr size:', get_size(corr_coded_tricklets))
+    # print('corr size:', get_size(corr_coded_tricklets))
 
-    for w in range(result[i].shape[0]):  # for each time window
+
+    for w in range(result[0].shape[0]):  # for each time window
 
         # create dictionary to keep indices
         A = correlation_matrix[w].values.tolist()
@@ -662,11 +663,11 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
     # print(recons)
 
     errors = []
-    print("Error's norm of the correlation-aware method: ", end="")
+    # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
         errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # errors.append(RMSE(ts[i], np.array(recons[i])))
-    print(errors)
+    # print(errors)
 
     return get_size(sparseData), errors
 
@@ -694,11 +695,11 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbA
     # print(corr_coded_tricklets)
 
     errors = []
-    print("Error's norm of the correlation-aware method: ", end="")
+    # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
         errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # errors.append(RMSE(ts[i], np.array(recons[i])))
-    print(errors)
+    # print(errors)
 
     return get_size(atoms_coded_tricklets) + get_size(corr_coded_tricklets), errors
 

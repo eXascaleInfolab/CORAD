@@ -9,13 +9,13 @@ from input_output import *
 #
 #     return D
 
-def learnDictionary(X, nbAtoms, alpha, n_iter):
+def learnDictionary(X, nbAtoms, alpha, n_iter, fname):
     from sklearn.decomposition import DictionaryLearning
     # , fit_algorithm = 'lars', 'cd'
     dico = DictionaryLearning(n_components=nbAtoms, alpha=alpha, max_iter= 10)
 
     D = dico.fit(X).components_
-    save_object(D, 'dict1.pkl')
+    save_object(D, fname)
     return D
 
 
