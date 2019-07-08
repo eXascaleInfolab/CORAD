@@ -8,15 +8,8 @@ from luminol.correlator import Correlator
 from decimal import Decimal
 from dictionary_learning import *
 
-nbweeks = 2
 
-len_tricklet = nbweeks * 7
-
-
-# len_tricklet = nbweeks * 7
-
-
-def getTrickletsTS(time_series, nbTS):
+def getTrickletsTS(time_series, nbTS, nbweeks):
     # First  timestamp
     s1 = time_series.iloc[:, 0][0]
 
@@ -247,6 +240,10 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
 
     result = {}
 
+    print(atoms_coded_tricklets)
+    # input('')
+    # start with reconstructing the atoms stored tricklets
+    #for each time series
     for k, v in atoms_coded_tricklets.items():
         out = {}
         # print(sparseData[index])
@@ -272,6 +269,7 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     # for each TS stored using correlation
     for index in range(len(corr_coded_tricklets)):
         # print(corr_coded_tricklets[index].items())
+        # for each window and shift value
         for w, value in corr_coded_tricklets[index].items():
             i_m, shift = value
             # try:
@@ -518,12 +516,12 @@ def test_dictionary_building(ts1, ts2, corr):
     print('Lost precision: ' + str(error2 - error1))
 
 
-def chunks(l, n):
+def chunks(l, len_tricklet):
     """Yield successive n-sized chunks from l."""
     res = []
-    for i in range(0, len(l), n):
-        if (len(l[i:i + n]) == len_tricklet):
-            res.append(l[i:i + n])
+    for i in range(0, len(l), len_tricklet):
+        if (len(l[i:i + len_tricklet]) == len_tricklet):
+            res.append(l[i:i + len_tricklet])
     return res
 
 
@@ -538,8 +536,8 @@ def sparse_code_without_correlation(ts, Dictionary, nonzero_coefs, transform_alg
     for t in ts:
         result.append(coder.transform(t))
 
+    # transformation of result to [id_A, coef_A]
     tricklets = []
-
     for index in range(len(result)):
         temp = []
         for t in range(result[index].shape[0]):
@@ -554,6 +552,9 @@ def sparse_code_without_correlation(ts, Dictionary, nonzero_coefs, transform_alg
         tricklets[index] = np.array([np.array(xi) for xi in tricklets[index]])
 
     return tricklets
+
+def mse(x,y):
+    return ((np.array(x) - np.array(y)) ** 2).mean(axis=None)
 
 
 def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coefs, transform_algorithm, threshold):
@@ -604,12 +605,21 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
 
         i_stored = []
 
+        x_plotting = np.array([])
+        y_plotting = np.array([])
         # for each line (TS)
+        print('shift reduced error?')
+
+        shift_works = []
+
         for k, X in C.items():
             # Find the index maximizing the correlation
+            # m =   list of indices of corr TS candidates AND
+            #       already stored normally and different than itself
             m = [X[i] for i, v in enumerate(X) if (
-                    i in i_stored and v >= threshold and k != i)]  # list of indices of corr TS candidates AND already stored normally and different than itself
+                    i in i_stored and v >= threshold and k != i)]
             i_m = [i for i, j in enumerate(X) if m and j == max(m)]  # indice of the max
+
             if i_m:  # store corr
                 i_m = i_m[0]
                 x = ts[i_m][w]
@@ -617,7 +627,21 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
                 if k not in corr_coded_tricklets.keys():
                     corr_coded_tricklets[k] = {}
                 corr_coded_tricklets[k][w] = i_m, shift_mean(x, y)
+                # print(shift_mean(x, y))
 
+                z= [v + shift_mean(x, y) for v in x]
+
+                shift_works.append(mse(x,y) > mse(x,z))
+                # plt.plot(x)
+                # plt.plot(y)
+                #
+                # plt.plot(z)
+                # plt.show()
+                # plt.cla()
+                # print(((np.array(x) - np.array(y)) ** 2).mean(axis=None))
+                # np.append(x_plotting, shift_mean(x, y))
+                # np.append(y_plotting, mse(x,y))
+                # input('')
                 # a, b = alpha_beta(x, y)
                 # if a != 0 :
                 #     corr_coded_tricklets[k][w] = i_m, a, b  # pick the first candidate maximizing the correlation
@@ -629,12 +653,19 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
                 #         atoms_coded_tricklets[k][w] = tricklets[k][w]
                 #     i_stored.append(k)
             else:  # store sparse
-                if k in atoms_coded_tricklets:
-                    atoms_coded_tricklets[k][w] = tricklets[k][w]
-                else:
+                if k not in atoms_coded_tricklets:
                     atoms_coded_tricklets[k] = {}
-                    atoms_coded_tricklets[k][w] = tricklets[k][w]
-                i_stored.append(k)  # add k to the list of elements stored in sparse way
+                atoms_coded_tricklets[k][w] = tricklets[k][w]
+                # add k to the list of elements stored in sparse way
+                i_stored.append(k)
+       #  plt.cla()
+       #  plt.xlabel('shift mean')
+       #  plt.ylabel('error')
+       #  plt.title('shift mean vs mserror')
+       #  plt.scatter(x, y)
+       # # plt.show()
+       #  plt.savefig('outputs/shift_error/shift_vs_error%d.png'%w)
+        print('yeah', any(item == True for item in shift_works))
 
     # print(atoms_coded_tricklets)
     # print(corr_coded_tricklets)
@@ -661,11 +692,11 @@ def shift_mean(x, y):
     av_x = statistics.median(x)
     av_y = statistics.median(y)
 
-    print(av_y - av_x)
-    plt.plot(x)
-    plt.plot(y)
-    plt.plot([i + av_y - av_x for i in x])
-    plt.show()
+    # print(av_y - av_x)
+    # plt.plot(x)
+    # plt.plot(y)
+    # plt.plot([i + av_y - av_x for i in x])
+    # plt.show()
 
     plt.show(block=True)
 
@@ -751,7 +782,7 @@ def get_size(obj, seen=None):
 
 def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
     # Transforming test data into sparse respresentation using the transform algorithm
-    print("Transforming test data into sparse respresentation ... ", end='')
+    print("Transforming test data into sparse respresentation without correlation ... ", end='')
     sparseData = sparse_code_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm)
     # print(atoms_coded_tricklets)
     print("done!")
@@ -778,7 +809,7 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
 def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbAtoms, transform_algorithm):
     # Transforming test data into sparse respresentation using the omp algorithm
 
-    print("Transforming test data into sparse respresentation ... ", end='')
+    print("Transforming test data into correlation aware sparse respresentation ... ", end='')
     atoms_coded_tricklets, corr_coded_tricklets = sparse_code_with_correlation(ts, correlation_matrix, Dictionary,
                                                                                nbAtoms, transform_algorithm, threshold)
 
@@ -818,7 +849,7 @@ def RMSE(t1, t2):
     return (np.square(np.array(normalized(t1) - np.array(normalized(t2))) ** 2)).mean(axis=None)
 
 
-def dataframeToTricklets(data):
+def dataframeToTricklets(data, len_tricklet):
     ts = [[] for i in range(len(data.columns))]
 
     for column in data:
