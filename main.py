@@ -7,21 +7,25 @@ if __name__ == "__main__":
     len_tricklet = nbweeks * 7
 
     # len_tricklet = nbweeks * 7
-    df_data = read_multiple_ts('Datasets/Sales_Transactions_Dataset_Weekly.csv', 1, 53)
-    # df = pd.DataFrame(np.random.randint(0, 100, size=(1000, 1)), columns=list('A'))
-    # from random import randrange
-    #
-    # for i in range(100):
-    #     df[chr(ord('A')+i)] = df['A'] + randrange(-100,100)
-    #
-    # # df.plot()
-    # # plt.show()
-    # # print(df)
-    #
-    # df_data = df
+    # df_data = read_multiple_ts('Datasets/Sales_Transactions_Dataset_Weekly.csv', 1, 53)
 
-    time_series_data = dataframeToTricklets(df_data,len_tricklet)
+    df = pd.DataFrame(np.random.randint(0, 10, size=(10000, 1)), columns=list('A'))
+    from random import randrange
 
+    for i in range(20):
+        df[chr(ord('A') + i)] = df['A'] + randrange(-100, 100)
+
+    # df.plot()
+    # plt.show()
+    # print(df)
+
+    df_data = df
+
+    # print (df_data)
+
+    time_series_data = dataframeToTricklets(df_data, len_tricklet)
+
+    # print (len(time_series_data[0]))
     # df_data = df.iloc[:,0:53]
     # print(df_learning)
     # time_series_learning = [item for sublist in dataframeToTricklets(df_learning) for item in sublist]
@@ -35,6 +39,8 @@ if __name__ == "__main__":
         correlation_matrix.append(df_data[i * len_tricklet: (i + 1) * len_tricklet].corr())
     print("done!")
 
+    # print(correlation_matrix)
+
     print("Building the dictionary ... ", end='')
     data = read_time_series('Datasets/SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
     tricklets = getTrickletsTS(data, 2, nbweeks)
@@ -47,24 +53,26 @@ if __name__ == "__main__":
     # print("done!")
 
     old_atoms_coded_tricklets, errors_old = compress_without_correlation(time_series_data, Dictionary, 6, 'omp')
-    atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(time_series_data, correlation_matrix, Dictionary, threshold, 6, 'omp')
+    atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(time_series_data,
+                                                                                        correlation_matrix, Dictionary,
+                                                                                        threshold, 6, 'omp')
+
     # print(corr_coded_tricklets)
 
     import statistics as s
 
-    print('New error:', "{0:.5%}".format(s.mean(errors_new)))
-    print('Old error:', "{0:.5%}".format(s.mean(errors_old)))
+    print('New error:', "{0:.5}".format(s.mean(errors_new)))
+    print('Old error:', "{0:.5}".format(s.mean(errors_old)))
 
     original_size = get_size(old_atoms_coded_tricklets)
     new_size = get_size(atoms_coded_tricklets) + get_size(corr_coded_tricklets)
 
     print('size optimisation is: ', original_size - new_size)
     import time
+
     ts = time.time()
-    save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out'%str(int(ts)))
-    save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out'%str(int(ts)))
-
-
+    save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(ts)))
+    save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out' % str(int(ts)))
 
     # plt.plot(errors_new)
     # plt.plot(errors_old)

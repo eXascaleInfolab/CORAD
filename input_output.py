@@ -1,10 +1,15 @@
 import pandas as pd
+import os
 
 def save_object(obj, filename):
     try:
         import cPickle as pickle
     except ModuleNotFoundError:
         import pickle
+
+    # dirname = os.path.dirname(filename)
+    # if not os.path.exists(dirname):
+    #     os.makedirs(dirname)
 
     with open(filename, 'wb') as output:  # Overwrites any existing file.
         pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
