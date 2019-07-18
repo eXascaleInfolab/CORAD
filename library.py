@@ -234,7 +234,7 @@ def reconstructDataMulti_without_correlation(sparseData, Dictionary):
     return result
 
 
-def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tricklets, Dictionary):
+def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tricklets, Dictionary, ts):
     # result = [[] for i in range(len(sparseData))]
     # print(sparseData)
 
@@ -265,15 +265,44 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
         result[k] = out
         # print(result)
 
-        # out.append(np.sum(Dictionary.T * sparseData[n], axis=1))
+    # out.append(np.sum(Dictionary.T * sparseData[n], axis=1))
+    # for k, v in result.items():
+    #     # print(k, v.keys())
+    #     for j in v.keys():
+    #         try:
+    #             print(ts[k][j])
+    #             print(result[k][j])
+    #
+    #             plt.plot(ts[k][j])
+    #             plt.plot(result[k][j])
+    #             plt.title(str(i) + '_' + str(j))
+    #             plt.show()
+    #             print()
+    #         except:
+    #             print()
+    #     print()
 
     # for each TS stored using correlation
-    for index in range(len(corr_coded_tricklets)):
-        # print(corr_coded_tricklets[index].items())
-
+    for k in range(len(corr_coded_tricklets)):
         # for each window and shift value
-        for w, value in corr_coded_tricklets[index].items():
-            i_m, shift = value
+        for w in corr_coded_tricklets[k].keys():
+            i_m, shift = corr_coded_tricklets[k][w]
+            if k not in result.keys():
+                result[k] = {}
+            result[k][w] = [x + shift for x in result[i_m][w]]
+
+
+            # print(ts[k][w])
+            # print(result[k][w])
+
+            # plt.plot(ts[k][w])
+            # plt.plot(result[k][w])
+            # plt.plot(result[i_m][w])
+            # plt.title(str(i) + '_' + str(w))
+            # plt.show()
+            # print('yep')
+
+            # print()
             # try:
             #     # print(atoms_coded_tricklets[value][key])
             # print('a is ', a)
@@ -283,10 +312,10 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
             # found_list, shift = find_corr_list(result, corr_coded_tricklets, i_m, w, shift)
 
             # corr_i = result[corr_coded_tricklets[value][w]][w]
-            if index not in result.keys():
-                result[index] = {}
-                print("XXXXXXX")
-            result[index][w] = [x + shift for x in result[i_m][w]]
+
+
+                # print("XXXXXXX", index)
+            # result[k][w] = [x + shift for x in result[i_m][w]]
 
             # try:
             #     result[index][w] = [x + shift for x in result[i_m][w]]
@@ -301,11 +330,39 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     # print(len(out))
     # print(len(result[0]))
 
-    recovered_Data = [0 for x in range(len(result))]
-    print(len(result))
-    for k, v in result.items():
-        recovered_Data[k] = [x for x in v.values()]
-    return recovered_Data
+    resultList = []
+    for i in range(len(result.values())):
+        # li =
+        # v = result[i]
+        resultList.append([result[i][j] for j in sorted(result[i].keys())])
+
+        # for j in range(len(result[i])):
+        #     plt.plot(ts[i][j])
+        #     plt.plot(resultList[i][j])
+        #     plt.title(str(i) + '_' + str(j))
+        #     plt.show()
+
+
+        # resultList.append(li)
+
+
+
+    # print(len(result))
+    # for k in range(len(result.items())):
+    #     w_list = [[] in range(len(result[k]))]
+    #     print(w_list)
+    #
+    #     resultList[k] = [x for x in v.values()]
+        #
+        # for j in range(len(ts[k])):
+        #     plt.plot(ts[k][j])
+        #     plt.plot(resultList[k][j])
+        #     plt.title(str(k) + '_'+str(j))
+        #     plt.show()
+        #
+        #     print()
+
+    return resultList
 
 
 def find_corr_list(result, corr_coded_tricklets, ts, window, shift):
@@ -822,6 +879,7 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
         # for j in range(len(ts[i])):
         #     plt.plot(ts[i][j])
         #     plt.plot(recons[i][j])
+        #     plt.title(str(i) + str(j))
         #     plt.show()
 
         # errors.append(RMSE(ts[i], np.array(recons[i])))
@@ -843,13 +901,18 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbA
 
     # sparseData = sparse_code_without_correlation(ts, Dictionary, nbAtoms, "omp")
     # print(atoms_coded_tricklets)
+
     print("done!")
 
     print("Reconstructing data with correlation...", end="")
 
+    # print(corr_coded_tricklets)
+
+    # for k,v in corr_coded_tricklets.items():
+    #     print(k, v)
 
 
-    recons = reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tricklets, Dictionary)
+    recons = reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tricklets, Dictionary, ts)
     print("done!")
     # # print(recons)
 
@@ -859,10 +922,21 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbA
     # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
         errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
-        for j in range(len(ts[i])):
-            plt.plot(ts[i][j])
-            plt.plot(recons[i][j])
-            plt.show()
+        # for j in range(len(ts[i])):
+        #     # try:
+        #     plt.plot(ts[i][j])
+        #     plt.plot(recons[i][j])
+        #     plt.title(str(i) + '_'+str(j))
+        #     plt.show()
+
+            # except:
+            #     print()
+        #
+        #     try:
+        #         print(corr_coded_tricklets[i][j])
+        #     except:
+        #         print('in atoms')
+        #     plt.show()
 
         # errors.append(RMSE(ts[i], np.array(recons[i])))
     # print(errors)

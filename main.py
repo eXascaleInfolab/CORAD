@@ -9,7 +9,7 @@ if __name__ == "__main__":
     # len_tricklet = nbweeks * 7
     # df_data = read_multiple_ts('Datasets/Sales_Transactions_Dataset_Weekly.csv', 1, 53)
 
-    df = pd.DataFrame(np.random.randint(0, 10, size=(10000, 1)), columns=list('A'))
+    df = pd.DataFrame(np.random.randint(0, 10, size=(1000, 1)), columns=list('A'))
     from random import randrange
 
     for i in range(20):
@@ -20,6 +20,7 @@ if __name__ == "__main__":
     # print(df)
 
     df_data = df
+    np.savetxt('Datasets/df_20ts_exactcorrelation.txt', df.values, fmt='%d')
 
     # print (df_data)
 
@@ -67,7 +68,8 @@ if __name__ == "__main__":
     original_size = get_size(old_atoms_coded_tricklets)
     new_size = get_size(atoms_coded_tricklets) + get_size(corr_coded_tricklets)
 
-    print('size optimisation is: ', original_size - new_size)
+    # print(original_size, new_size)
+    print('size optimisation is: %f' % (new_size / original_size))
     import time
 
     ts = time.time()
