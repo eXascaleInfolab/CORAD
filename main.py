@@ -2,17 +2,17 @@ from library import *
 
 if __name__ == "__main__":
 
-    threshold = 0.9
+    threshold = 0.95
     nbweeks = 2
     len_tricklet = nbweeks * 7
 
     # len_tricklet = nbweeks * 7
     # df_data = read_multiple_ts('Datasets/Sales_Transactions_Dataset_Weekly.csv', 1, 53)
 
-    df = pd.DataFrame(np.random.randint(0, 10, size=(1000, 1)), columns=list('A'))
+    df = pd.DataFrame(np.random.randint(0, 10, size=(100000, 1)), columns=list('A'))
     from random import randrange
 
-    for i in range(20):
+    for i in range(100):
         df[chr(ord('A') + i)] = df['A'] + randrange(-100, 100)
 
     # df.plot()
@@ -20,9 +20,18 @@ if __name__ == "__main__":
     # print(df)
 
     df_data = df
+
+    save_object(df_data, 'Datasets/df_20ts_exactcorrelation1.txt')
+
+
     np.savetxt('Datasets/df_20ts_exactcorrelation.txt', df.values, fmt='%d')
 
     # print (df_data)
+
+    import time
+
+    start = time.time()
+
 
     time_series_data = dataframeToTricklets(df_data, len_tricklet)
 
@@ -35,8 +44,9 @@ if __name__ == "__main__":
 
     print("Computing correlation ... ", end='')
     correlation_matrix = []
+
+    # compute the correlation for each segment
     for i in range(int(df_data.shape[0] / len_tricklet)):
-        # compute the correlation for each segment
         correlation_matrix.append(df_data[i * len_tricklet: (i + 1) * len_tricklet].corr())
     print("done!")
 
@@ -58,6 +68,8 @@ if __name__ == "__main__":
                                                                                         correlation_matrix, Dictionary,
                                                                                         threshold, 6, 'omp')
 
+    end = time.time()
+
     # print(corr_coded_tricklets)
 
     import statistics as s
@@ -76,6 +88,7 @@ if __name__ == "__main__":
     save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(ts)))
     save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out' % str(int(ts)))
 
+    print('Computation time: ', (end - start), 's')
     # plt.plot(errors_new)
     # plt.plot(errors_old)
     # plt.ylabel('errors')
