@@ -9,22 +9,29 @@ if __name__ == "__main__":
     # len_tricklet = nbweeks * 7
     # df_data = read_multiple_ts('Datasets/Sales_Transactions_Dataset_Weekly.csv', 1, 53)
 
-    df = pd.DataFrame(np.random.randint(0, 10, size=(100000, 1)), columns=list('A'))
-    from random import randrange
+    # df = pd.DataFrame(np.random.randint(0, 10, size=(100000, 1)), columns=list('A'))
+    # from random import randrange
+    #
+    # for i in range(1):
+    #     df[chr(ord('A') + i)] = df['A'] + randrange(-100, 100)
+    #
+    # # df.plot()
+    # # plt.show()
+    # # print(df)
+    #
+    # df_data = df
 
-    for i in range(100):
-        df[chr(ord('A') + i)] = df['A'] + randrange(-100, 100)
 
+
+    df_data = pd.read_csv('Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv', sep='\t')
+    print(df_data.shape)
     # df.plot()
     # plt.show()
-    # print(df)
 
-    df_data = df
-
-    save_object(df_data, 'Datasets/df_20ts_exactcorrelation1.txt')
+    # save_object(df_data, 'Datasets/df_Yoga_TRAIN.tsv')
 
 
-    np.savetxt('Datasets/df_20ts_exactcorrelation.txt', df.values, fmt='%d')
+    np.savetxt('Datasets/df_20ts_exactcorrelation.txt', df_data.values, fmt='%d')
 
     # print (df_data)
 

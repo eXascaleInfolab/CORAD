@@ -283,7 +283,7 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     #     print()
 
     # for each TS stored using correlation
-    for k in range(len(corr_coded_tricklets)):
+    for k in corr_coded_tricklets.keys():
         # for each window and shift value
         for w in corr_coded_tricklets[k].keys():
             i_m, shift = corr_coded_tricklets[k][w]
