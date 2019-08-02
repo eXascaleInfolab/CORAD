@@ -892,12 +892,12 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
     # plt.show()
 
 
-def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbAtoms, transform_algorithm):
+def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold, nbAtoms, transform_algorithm):
     # Transforming test data into sparse respresentation using the omp algorithm
 
     print("Transforming test data into correlation-aware sparse respresentation ... ", end='')
     atoms_coded_tricklets, corr_coded_tricklets = sparse_code_with_correlation(ts, correlation_matrix, Dictionary,
-                                                                               nbAtoms, transform_algorithm, threshold)
+                                                                               nbAtoms, transform_algorithm, corr_threshold)
 
     # sparseData = sparse_code_without_correlation(ts, Dictionary, nbAtoms, "omp")
     # print(atoms_coded_tricklets)

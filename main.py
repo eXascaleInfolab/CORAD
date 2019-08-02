@@ -5,18 +5,20 @@ import statistics as s
 
 if __name__ == "__main__":
 
-    threshold = 0.95
+    corr_threshold = 0.95
     nbweeks = 2
-    len_tricklet = nbweeks * 7
-    nb_atoms = 4
+    len_tricklet = 10
+    # len_tricklet = nbweeks * 7
+    nb_atoms = 6
     ts = time.time()
     # datasetPath = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718.csv'
     # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
-    # datasetPath = '../Datasets/UCRArchive_2018/CinCECGTorso/CinCECGTorso_TEST.tsv'
+    # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
+    # datasetPath = '../Datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv'
+    datasetPath = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TEST.tsv'
 
-    datasetPath = '../Datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv'
-
-    datasetPathDictionary = '../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv'
+    # datasetPathDictionary = '../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv'
+    datasetPathDictionary = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TRAIN.tsv'
 
     # len_tricklet = nbweeks * 7
     df_data = pd.read_csv(datasetPath, sep='\t')
@@ -70,7 +72,7 @@ if __name__ == "__main__":
     start2 = time.time()
     atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(time_series_data,
                                                                                         correlation_matrix, Dictionary,
-                                                                                        threshold, nb_atoms, 'omp')
+                                                                                        corr_threshold, nb_atoms, 'omp')
     end2 = time.time()
 
 
