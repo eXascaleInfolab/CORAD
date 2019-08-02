@@ -295,11 +295,11 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
             # print(ts[k][w])
             # print(result[k][w])
 
-            plt.plot(ts[k][w])
-            plt.plot(result[k][w])
-            plt.plot(result[i_m][w])
-            plt.title(str(i) + '_' + str(w))
-            plt.show()
+            # plt.plot(ts[k][w])
+            # plt.plot(result[k][w])
+            # plt.plot(result[i_m][w])
+            # plt.title(str(i) + '_' + str(w))
+            # plt.show()
             # print('yep')
 
             # print()
@@ -895,7 +895,7 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
 def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbAtoms, transform_algorithm):
     # Transforming test data into sparse respresentation using the omp algorithm
 
-    print("Transforming test data into correlation aware sparse respresentation ... ", end='')
+    print("Transforming test data into correlation-aware sparse respresentation ... ", end='')
     atoms_coded_tricklets, corr_coded_tricklets = sparse_code_with_correlation(ts, correlation_matrix, Dictionary,
                                                                                nbAtoms, transform_algorithm, threshold)
 
