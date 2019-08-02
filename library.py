@@ -295,11 +295,11 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
             # print(ts[k][w])
             # print(result[k][w])
 
-            # plt.plot(ts[k][w])
-            # plt.plot(result[k][w])
-            # plt.plot(result[i_m][w])
-            # plt.title(str(i) + '_' + str(w))
-            # plt.show()
+            plt.plot(ts[k][w])
+            plt.plot(result[k][w])
+            plt.plot(result[i_m][w])
+            plt.title(str(i) + '_' + str(w))
+            plt.show()
             # print('yep')
 
             # print()
@@ -884,7 +884,7 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
 
         # errors.append(RMSE(ts[i], np.array(recons[i])))
     # print(errors)
-
+    # print(len(recons))
     return sparseData, errors
 
     # plt.plot(errors)
@@ -923,11 +923,11 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, threshold, nbA
     for i in range(len(ts)):
         errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # for j in range(len(ts[i])):
-        #     # try:
-        #     plt.plot(ts[i][j])
-        #     plt.plot(recons[i][j])
-        #     plt.title(str(i) + '_'+str(j))
-        #     plt.show()
+            # try:
+            # plt.plot(ts[i][j])
+            # plt.plot(recons[i][j])
+            # plt.title(str(i) + '_'+str(j))
+            # plt.show()
 
             # except:
             #     print()

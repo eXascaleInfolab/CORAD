@@ -11,23 +11,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="286" column="15" selection-start-line="286" selection-start-column="15" selection-end-line="286" selection-end-column="15" />
+            <state relative-caret-position="15">
+              <caret line="288" selection-start-line="288" selection-end-line="288" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -35,11 +26,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/input_output.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="495">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../test/venv/lib/python3.7/site-packages/sklearn/decomposition/dict_learning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2280">
+              <caret line="172" selection-start-line="172" selection-end-line="172" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dictionary_learning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -48,13 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>multi</find>
-      <find>reconstructing</find>
-      <find>reconstructDataMulti_with_correlation</find>
-      <find>reconstru</find>
-      <find>53</find>
-      <find>52</find>
-      <find>keys</find>
       <find>53:</find>
       <find>0</find>
       <find>0:</find>
@@ -78,6 +89,13 @@
       <find>pic</find>
       <find>pi</find>
       <find>pickle</find>
+      <find>total_size</find>
+      <find>6</find>
+      <find>plot</find>
+      <find>plt.plot</find>
+      <find>learn</find>
+      <find>recon</find>
+      <find>datasetPath</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,13 +105,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/input_output.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dictionary_learning.py" />
         <option value="$PROJECT_DIR$/library.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="43" />
+    <option name="x" value="-47" />
     <option name="y" value="69" />
     <option name="width" value="1611" />
     <option name="height" value="914" />
@@ -109,11 +128,6 @@
             <path>
               <item name="cor-space-config" type="b2602c69:ProjectViewProjectNode" />
               <item name="cor-space-config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cor-space-config" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cor-space-config" type="462c0819:PsiDirectoryNode" />
-              <item name="Datasets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cor-space-config" type="b2602c69:ProjectViewProjectNode" />
@@ -186,14 +200,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="69" width="1611" height="914" extended-state="0" />
+    <frame x="-47" y="69" width="1611" height="914" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26386234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296837" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49968132" visible="true" weight="0.34428224" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49968132" visible="true" weight="0.33819953" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39902675" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -208,17 +223,6 @@
       <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="right" id="R Packages" order="4" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/library.py</url>
-          <line>894</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Datasets/df_20ts_exactcorrelation.txt">
@@ -235,10 +239,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../test/venv/lib/python3.7/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="1852" selection-start-line="1852" selection-end-line="1852" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dictionary_learning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../test/venv/lib/python3.7/site-packages/sklearn/decomposition/dict_learning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2280">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/input_output.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="288" selection-start-line="288" selection-end-line="288" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -247,18 +282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="286" column="15" selection-start-line="286" selection-start-column="15" selection-end-line="286" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
         </state>
       </provider>
     </entry>
