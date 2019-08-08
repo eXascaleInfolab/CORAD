@@ -69,9 +69,9 @@ def getTrickletsTS(time_series, nbTS, nbweeks):
 #     return ts
 
 
-def getTimeStamp(id_tricklet):
-    return id_tricklet * nbweeks * 7
-
+# def getTimeStamp(id_tricklet):
+#     return id_tricklet * nbweeks * 7
+#
 
 def plotData(data):
     plt.plot(data)
@@ -134,44 +134,44 @@ def print_dictionary(dict):
     for key, val in dict.items():
         print(key, "=>", val)
 
-
-def runSparseCoder_new(Dictionary, test_data, nonzero_coefs, transform_algorithm, corr):
-    from sklearn.decomposition import SparseCoder
-
-    coder = SparseCoder(dictionary=Dictionary, transform_n_nonzero_coefs=nonzero_coefs,
-                        transform_alpha=None, transform_algorithm=transform_algorithm)
-
-    # test_data: list of lists
-    print('test_data000')
-    print(len(test_data))
-    print(type(test_data))
-    print(test_data)
-    code = coder.transform(test_data)
-    # code = coder.transform2Tricklets(test_data)
-    print(code.shape)
-    atoms_coded_tricklets = {}
-    corr_coded_tricklets = {}
-    # tricklets = np.array([np.array([[i,e] for i, e in enumerate(result[t]) if e != 0 for t in range(result.shape[0])])])
-    # print('result:')
-    # print(result)
-
-    for t in range(code.shape[0]):
-        if not trickletIsIn(getTimeStamp(t), corr, 7 * nbweeks):
-            x = []
-            for i, e in enumerate(code[t]):
-                if e != 0:
-                    x.append([i, e])
-            # print(type(x))
-            atoms_coded_tricklets[t] = x
-        else:
-            corr_coded_tricklets[t] = 1
-
-    # atoms_coded_tricklets = np.array([np.array(xi) for xi in atoms_coded_tricklets])
-
-    # print()
-    # print(atoms_coded_tricklets)
-
-    return atoms_coded_tricklets, corr_coded_tricklets
+#
+# def runSparseCoder_new(Dictionary, test_data, nonzero_coefs, transform_algorithm, corr):
+#     from sklearn.decomposition import SparseCoder
+#
+#     coder = SparseCoder(dictionary=Dictionary, transform_n_nonzero_coefs=nonzero_coefs,
+#                         transform_alpha=None, transform_algorithm=transform_algorithm)
+#
+#     # test_data: list of lists
+#     print('test_data000')
+#     print(len(test_data))
+#     print(type(test_data))
+#     print(test_data)
+#     code = coder.transform(test_data)
+#     # code = coder.transform2Tricklets(test_data)
+#     print(code.shape)
+#     atoms_coded_tricklets = {}
+#     corr_coded_tricklets = {}
+#     # tricklets = np.array([np.array([[i,e] for i, e in enumerate(result[t]) if e != 0 for t in range(result.shape[0])])])
+#     # print('result:')
+#     # print(result)
+#
+#     for t in range(code.shape[0]):
+#         if not trickletIsIn(getTimeStamp(t), corr, 7 * nbweeks):
+#             x = []
+#             for i, e in enumerate(code[t]):
+#                 if e != 0:
+#                     x.append([i, e])
+#             # print(type(x))
+#             atoms_coded_tricklets[t] = x
+#         else:
+#             corr_coded_tricklets[t] = 1
+#
+#     # atoms_coded_tricklets = np.array([np.array(xi) for xi in atoms_coded_tricklets])
+#
+#     # print()
+#     # print(atoms_coded_tricklets)
+#
+#     return atoms_coded_tricklets, corr_coded_tricklets
 
 
 def reconstructData(sparseData, Dictionary):
@@ -291,7 +291,6 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
                 result[k] = {}
             result[k][w] = [x + shift for x in result[i_m][w]]
 
-
             # print(ts[k][w])
             # print(result[k][w])
 
@@ -313,8 +312,7 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
 
             # corr_i = result[corr_coded_tricklets[value][w]][w]
 
-
-                # print("XXXXXXX", index)
+            # print("XXXXXXX", index)
             # result[k][w] = [x + shift for x in result[i_m][w]]
 
             # try:
@@ -342,10 +340,7 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
         #     plt.title(str(i) + '_' + str(j))
         #     plt.show()
 
-
         # resultList.append(li)
-
-
 
     # print(len(result))
     # for k in range(len(result.items())):
@@ -353,14 +348,14 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     #     print(w_list)
     #
     #     resultList[k] = [x for x in v.values()]
-        #
-        # for j in range(len(ts[k])):
-        #     plt.plot(ts[k][j])
-        #     plt.plot(resultList[k][j])
-        #     plt.title(str(k) + '_'+str(j))
-        #     plt.show()
-        #
-        #     print()
+    #
+    # for j in range(len(ts[k])):
+    #     plt.plot(ts[k][j])
+    #     plt.plot(resultList[k][j])
+    #     plt.title(str(k) + '_'+str(j))
+    #     plt.show()
+    #
+    #     print()
 
     return resultList
 
@@ -444,46 +439,46 @@ def localCorrelation(ts1, ts2, score_threshold, correlation_threshold, minLength
     return list
 
 
-def test_dictionary_building_old(ts1, ts2):
-    # Reading time series
-    # ts1, ts2 = read_time_series('SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
-
-    # Get sample 100 tricklets to reconstruct
-    test_data = np.array(ts2[20:120])
-
-    # Build the dictionary
-    print("Building the dictionary ... ", end='')
-    D = learnDictionary(ts1, 36, 1, 100)
-    print("done!")
-    # print(len(D))
-
-    # Transforming test data into sparse respresentation using the omp algorithm
-    print("Transforming test data into sparse respresentation ... ", end='')
-    sparseData = runSparseCoder(D, test_data, nbAtoms, "omp")
-    # np.set_printoptions(threshold=np.inf)
-    # print(sparseData)
-
-    sparseDataX = pd.DataFrame.from_records(sparseData)
-    # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-    #     print(sparseDataX)
-    #     print(len(sparseDataX))
-
-    print("done!")
-
-    print("Reconstructing data...", end="")
-    out = reconstructData(sparseData, D)
-    print("done!")
-
-    print("Plotting.. ", end="")
-    plotManyData(test_data, range(len(D[0])), 2, 2)
-    plotManyData(D, range(len(D[0])), 6, 6)
-    plotManyData(out, range(len(D[0])), 2, 2)
-
-    plt.show(block=True)
-    print("done!")
-
-    print("Error's norm: ", end="")
-    print(np.linalg.norm(np.array(test_data) - np.array(out)))
+# def test_dictionary_building_old(ts1, ts2):
+#     # Reading time series
+#     # ts1, ts2 = read_time_series('SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
+#
+#     # Get sample 100 tricklets to reconstruct
+#     test_data = np.array(ts2[20:120])
+#
+#     # Build the dictionary
+#     print("Building the dictionary ... ", end='')
+#     D = learnDictionary(ts1, 36, 1, 100)
+#     print("done!")
+#     # print(len(D))
+#
+#     # Transforming test data into sparse respresentation using the omp algorithm
+#     print("Transforming test data into sparse respresentation ... ", end='')
+#     sparseData = runSparseCoder(D, test_data, nbAtoms, "omp")
+#     # np.set_printoptions(threshold=np.inf)
+#     # print(sparseData)
+#
+#     sparseDataX = pd.DataFrame.from_records(sparseData)
+#     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+#     #     print(sparseDataX)
+#     #     print(len(sparseDataX))
+#
+#     print("done!")
+#
+#     print("Reconstructing data...", end="")
+#     out = reconstructData(sparseData, D)
+#     print("done!")
+#
+#     print("Plotting.. ", end="")
+#     plotManyData(test_data, range(len(D[0])), 2, 2)
+#     plotManyData(D, range(len(D[0])), 6, 6)
+#     plotManyData(out, range(len(D[0])), 2, 2)
+#
+#     plt.show(block=True)
+#     print("done!")
+#
+#     print("Error's norm: ", end="")
+#     print(np.linalg.norm(np.array(test_data) - np.array(out)))
 
 
 def dict_to_array(dict):
@@ -494,90 +489,91 @@ def dict_to_array(dict):
     return dictlist
 
 
-def test_dictionary_building(ts1, ts2, corr):
-    # Reading time series
-    # ts1, ts2 = read_time_series('SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
-
-    # Build the dictionary
-    print("Building the dictionary ... ", end='')
-    D = learnDictionary(ts2, 400, 1, 100)
-    print("done!")
-    # print(len(D))
-
-    # Transforming test data into sparse respresentation using the omp algorithm
-    print("Transforming test data into sparse respresentation ... ", end='')
-    atoms_coded_tricklets1, corr_coded_tricklets1 = runSparseCoder_new(D, ts1, nbAtoms, "omp", corr)
-    # atoms_coded_tricklets1 = dict_to_array(atoms_coded_tricklets1)
-    # corr_coded_tricklets1 = dict_to_array(corr_coded_tricklets1)
-
-    atoms_coded_tricklets2 = runSparseCoder(D, ts1, nbAtoms, "omp")
-
-    # print(runSparseCoder(D, ts1, nbAtoms, "omp"))
-    # print(atoms_coded_tricklets1)
-    # print(corr_coded_tricklets1)
-    old_size = sys.getsizeof(atoms_coded_tricklets2)
-    new_size = sys.getsizeof(atoms_coded_tricklets1) + sys.getsizeof(corr_coded_tricklets1)
-    print('old size: ')
-    print(old_size)
-    print('new size: ')
-    print(new_size)
-
-    print('Compression rate:')
-    print("{0:.0%}".format(1. - float(new_size) / float(old_size)))
-    # # np.set_printoptions(threshold=np.inf)
-    # # print(sparseData)
-
-    # sparseDataX = pd.DataFrame.from_records(sparseData)
-    # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-    #     print(sparseDataX)
-    #     print(len(sparseDataX))
-
-    print("done!")
-
-    print("Reconstructing data...", end="")
-
-    reconstruct1 = reconstructData_new(atoms_coded_tricklets1, corr_coded_tricklets1, atoms_coded_tricklets2, D)
-    reconstruct2 = reconstructData(atoms_coded_tricklets2, D)
-    # print(np.array(reconstruct1))
-    # print(np.array(reconstruct2))
-
-    # print(np.array(normalized(reconstruct1)).shape)
-    print("reconstruct1!")
-
-    # print(np.array(normalized(reconstruct2)).shape)
-    print("done!")
-
-    #
-    # # print("Plotting.. ", end="")
-    # # plotManyData(test_data, range(len(D[0])), 2, 2)
-    # # plotManyData(D, range(len(D[0])), 6, 6)
-    # # plotManyData(out, range(len(D[0])), 2, 2)
-    # #
-    # # plt.show(block=True)
-    # # print("done!")
-    # #
-
-    # print(np.array(normalized(ts1)))
-    # print(np.array(normalized(reconstruct1)))
-
-    # print(np.array(reconstruct1) - np.array(reconstruct2))
-
-    print("Error's norm of the correlation-aware method: ", end="")
-
-    # error1 = np.linalg.norm(np.array(normalized(ts1)) - np.array(normalized(reconstruct1)))
-    error1 = RMSE(ts1, reconstruct1)
-    # # error1 = ((np.array(normalized(ts1) - np.array(normalized(reconstruct1))) ** 2).mean(axis=None))
-    print('%.2E' % Decimal(error1))
-
-    print("Error's norm of the regular method: ", end="")
-    error2 = RMSE(ts1, reconstruct2)
-    # # error2 = ((np.array(normalized(ts2) - np.array(normalized(reconstruct1))) ** 2).mean(axis=None))
-    # print('%.2E' % Decimal(error2))
-
-    # error2 = np.linalg.norm(np.array(normalized(ts1)) - np.array(normalized(reconstruct2)))
-    print('%.2E' % Decimal(error2))
-
-    print('Lost precision: ' + str(error2 - error1))
+# def test_dictionary_building(ts1, ts2, corr):
+#     # Reading time series
+#     # ts1, ts2 = read_time_series('SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
+#
+#     # Build the dictionary
+#     print("Building the dictionary ... ", end='')
+#     D = learnDictionary(ts2, 400, 1, 100)
+#     print("done!")
+#     # print(len(D))
+#
+#     # Transforming test data into sparse respresentation using the omp algorithm
+#     print("Transforming test data into sparse respresentation ... ", end='')
+#     atoms_coded_tricklets1, corr_coded_tricklets1 = runSparseCoder_new(D, ts1, nbAtoms, "omp", corr)
+#     # atoms_coded_tricklets1 = dict_to_array(atoms_coded_tricklets1)
+#     # corr_coded_tricklets1 = dict_to_array(corr_coded_tricklets1)
+#
+#     atoms_coded_tricklets2 = runSparseCoder(D, ts1, nbAtoms, "omp")
+#
+#     # print(runSparseCoder(D, ts1, nbAtoms, "omp"))
+#     # print(atoms_coded_tricklets1)
+#     # print(corr_coded_tricklets1)
+#     old_size = sys.getsizeof(atoms_coded_tricklets2)
+#     new_size = sys.getsizeof(atoms_coded_tricklets1) + sys.getsizeof(corr_coded_tricklets1)
+#     print('old size: ')
+#     print(old_size)
+#     print('new size: ')
+#     print(new_size)
+#
+#     print('Compression rate:')
+#     print("{0:.0%}".format(1. - float(new_size) / float(old_size)))
+#     # # np.set_printoptions(threshold=np.inf)
+#     # # print(sparseData)
+#
+#     # sparseDataX = pd.DataFrame.from_records(sparseData)
+#     # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+#     #     print(sparseDataX)
+#     #     print(len(sparseDataX))
+#
+#     print("done!")
+#
+#     print("Reconstructing data...", end="")
+#
+#     reconstruct1 = reconstructData_new(atoms_coded_tricklets1, corr_coded_tricklets1, atoms_coded_tricklets2, D)
+#     reconstruct2 = reconstructData(atoms_coded_tricklets2, D)
+#     # print(np.array(reconstruct1))
+#     # print(np.array(reconstruct2))
+#
+#     # print(np.array(normalized(reconstruct1)).shape)
+#     print("reconstruct1!")
+#
+#     # print(np.array(normalized(reconstruct2)).shape)
+#     print("done!")
+#
+#     #
+#     # # print("Plotting.. ", end="")
+#     # # plotManyData(test_data, range(len(D[0])), 2, 2)
+#     # # plotManyData(D, range(len(D[0])), 6, 6)
+#     # # plotManyData(out, range(len(D[0])), 2, 2)
+#     # #
+#     # # plt.show(block=True)
+#     # # print("done!")
+#     # #
+#
+#     # print(np.array(normalized(ts1)))
+#     # print(np.array(normalized(reconstruct1)))
+#
+#     # print(np.array(reconstruct1) - np.array(reconstruct2))
+#
+#     print("Error's norm of the correlation-aware method: ", end="")
+#
+#     # error1 = np.linalg.norm(np.array(normalized(ts1)) - np.array(normalized(reconstruct1)))
+#     error1 = calculate_RMSE(ts1, reconstruct1)
+#     # # error1 = ((np.array(normalized(ts1) - np.array(normalized(reconstruct1))) ** 2).mean(axis=None))
+#     print('%.2E' % Decimal(error1))
+#
+#     print("Error's norm of the regular method: ", end="")
+#     error2 = calculate_RMSE(ts1, reconstruct2)
+#
+#     # # error2 = ((np.array(normalized(ts2) - np.array(normalized(reconstruct1))) ** 2).mean(axis=None))
+#     # print('%.2E' % Decimal(error2))
+#
+#     # error2 = np.linalg.norm(np.array(normalized(ts1)) - np.array(normalized(reconstruct2)))
+#     print('%.2E' % Decimal(error2))
+#
+#     print('Lost precision: ' + str(error2 - error1))
 
 
 def chunks(l, len_tricklet):
@@ -617,6 +613,16 @@ def sparse_code_without_correlation(ts, Dictionary, nonzero_coefs, transform_alg
 
     return tricklets
 
+
+def normalize_df(df):
+    from scipy.signal import detrend
+    from sklearn import preprocessing
+
+    # x = df.values  # returns a numpy array
+    # min_max_scaler = preprocessing.MinMaxScaler()
+    # x_scaled = min_max_scaler.fit_transform(x)
+    # df = pd.DataFrame(x_scaled)
+    return detrend(df)
 
 def mse(x, y):
     return ((np.array(x) - np.array(y)) ** 2).mean(axis=None)
@@ -875,14 +881,15 @@ def compress_without_correlation(ts, Dictionary, nbAtoms, transform_algorithm):
     errors = []
     # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
-        errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
+        errors.append(calculate_RMSE(ts[i], recons[i]))
+        # errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # for j in range(len(ts[i])):
         #     plt.plot(ts[i][j])
         #     plt.plot(recons[i][j])
         #     plt.title(str(i) + str(j))
         #     plt.show()
 
-        # errors.append(RMSE(ts[i], np.array(recons[i])))
+        # errors.append(calculate_RMSE(ts[i], np.array(recons[i])))
     # print(errors)
     # print(len(recons))
     return sparseData, errors
@@ -897,7 +904,8 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold
 
     print("Transforming test data into correlation-aware sparse respresentation ... ", end='')
     atoms_coded_tricklets, corr_coded_tricklets = sparse_code_with_correlation(ts, correlation_matrix, Dictionary,
-                                                                               nbAtoms, transform_algorithm, corr_threshold)
+                                                                               nbAtoms, transform_algorithm,
+                                                                               corr_threshold)
 
     # sparseData = sparse_code_without_correlation(ts, Dictionary, nbAtoms, "omp")
     # print(atoms_coded_tricklets)
@@ -911,7 +919,6 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold
     # for k,v in corr_coded_tricklets.items():
     #     print(k, v)
 
-
     recons = reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tricklets, Dictionary, ts)
     print("done!")
     # # print(recons)
@@ -921,16 +928,17 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold
     errors = []
     # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
-        errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
+        errors.append(calculate_RMSE(ts[i], recons[i]))
+        # errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # for j in range(len(ts[i])):
-            # try:
-            # plt.plot(ts[i][j])
-            # plt.plot(recons[i][j])
-            # plt.title(str(i) + '_'+str(j))
-            # plt.show()
+        # try:
+        # plt.plot(ts[i][j])
+        # plt.plot(recons[i][j])
+        # plt.title(str(i) + '_'+str(j))
+        # plt.show()
 
-            # except:
-            #     print()
+        # except:
+        #     print()
         #
         #     try:
         #         print(corr_coded_tricklets[i][j])
@@ -938,7 +946,7 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold
         #         print('in atoms')
         #     plt.show()
 
-        # errors.append(RMSE(ts[i], np.array(recons[i])))
+        # errors.append(calculate_RMSE(ts[i], np.array(recons[i])))
     # print(errors)
 
     return atoms_coded_tricklets, corr_coded_tricklets, errors
@@ -955,8 +963,22 @@ def normalized(ts):
     return stats.zscore(ts)
 
 
-def RMSE(t1, t2):
-    return (np.square(np.array(normalized(t1) - np.array(normalized(t2))) ** 2)).mean(axis=None)
+def calculate_RMSE(orig_sig, reconstructed_sig):
+    orig_sig = normalized(orig_sig)
+    reconstructed_sig = normalized(reconstructed_sig)
+    return (np.square(np.array(orig_sig) - np.array(reconstructed_sig))).mean(axis=None)
+
+
+
+def calculate_PRD(orig_sig, reconstructed_sig):
+    orig_sig = normalized(orig_sig)
+    reconstructed_sig = normalized(reconstructed_sig)
+    num = np.sum((orig_sig - reconstructed_sig) ** 2)
+    den = np.sum(orig_sig ** 2)
+
+    PRD = np.sqrt(num / den)
+
+    return PRD
 
 
 def dataframeToTricklets(data, len_tricklet):

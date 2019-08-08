@@ -1,0 +1,4 @@
+Algorithm,Compressed size,Compression speed,Dataset,Decompression speed,Filename,Memlimit,MinIters,Nbits,Nthreads,Order,Original size,Preprocs,Query,Ratio
+Memcpy,1031401280,4993.75,msrc_split,7632.02,300 files,-1,0,16,3,f,1031401280,None,0,100.0
+SIMDBP128,351513472,6932.26,msrc_split,12013.41,300 files,-1,0,16,3,f,1019280000,None,0,34.49
+Simple8B,384037464,2387.39,msrc_split,5786.13,300 files,-1,0,16,3,f,1018298240,None,0,37.71

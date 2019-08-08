@@ -1,0 +1,193 @@
+Algorithm,Compressed size,Compression speed,Dataset,Decompression speed,Filename,Memlimit,MinIters,Nbits,Order,Original size,Preprocs,Ratio
+SprintzDelta -23,6479593,523.48,ampd_power,2623.74,/rowmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,c,24177600,None,26.8
+SprintzXff -23,6522704,338.56,ampd_power,2424.36,/rowmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,c,24177600,None,26.98
+SprintzDelta_Huf -23,4336145,354.66,ampd_power,1013.0,/rowmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,c,24177600,None,17.93
+SprintzXff_Huf -23,4518030,262.38,ampd_power,965.64,/rowmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,c,24177600,None,18.69
+SprintzDelta -2,638056,649.02,ampd_water,1960.19,/rowmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,c,6307220,None,10.12
+SprintzXff -2,642686,419.89,ampd_water,592.9,/rowmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,c,6307220,None,10.19
+SprintzDelta_Huf -2,399262,502.76,ampd_water,747.11,/rowmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,c,6307220,None,6.33
+SprintzXff_Huf -2,432958,308.38,ampd_water,392.8,/rowmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,c,6307220,None,6.86
+SprintzDelta -3,461234,599.74,ampd_gas,2036.52,/rowmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,c,6307215,None,7.31
+SprintzXff -3,477872,432.15,ampd_gas,1011.89,/rowmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,c,6307215,None,7.58
+SprintzDelta_Huf -3,139870,554.27,ampd_gas,1710.6,/rowmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,c,6307215,None,2.22
+SprintzXff_Huf -3,233259,335.8,ampd_gas,844.87,/rowmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,c,6307215,None,3.7
+SprintzDelta -18,32364178,448.22,uci_gas,2297.56,/rowmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,c,150961860,None,21.44
+SprintzXff -18,32831154,319.07,uci_gas,1891.76,/rowmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,c,150961860,None,21.75
+SprintzDelta_Huf -18,22462720,352.92,uci_gas,1213.77,/rowmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,c,150961860,None,14.88
+SprintzXff_Huf -18,22099539,283.06,uci_gas,980.65,/rowmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,c,150961860,None,14.64
+SprintzDelta -31,17267248,492.38,pamap,3304.85,/rowmajor/uint8/pamap/pamap.dat,-1,0,8,c,96957832,None,17.81
+SprintzXff -31,17755641,335.98,pamap,2752.49,/rowmajor/uint8/pamap/pamap.dat,-1,0,8,c,96957832,None,18.31
+SprintzDelta_Huf -31,11540238,392.66,pamap,1403.05,/rowmajor/uint8/pamap/pamap.dat,-1,0,8,c,96957832,None,11.9
+SprintzXff_Huf -31,12130647,291.41,pamap,1321.45,/rowmajor/uint8/pamap/pamap.dat,-1,0,8,c,96957832,None,12.51
+SprintzDelta -80,11996784,585.19,msrc,2976.21,/rowmajor/uint8/msrc/msrc.dat,-1,0,8,c,56806640,None,21.12
+SprintzXff -80,12288696,382.56,msrc,2827.37,/rowmajor/uint8/msrc/msrc.dat,-1,0,8,c,56806640,None,21.63
+SprintzDelta_Huf -80,9478189,453.27,msrc,1400.15,/rowmajor/uint8/msrc/msrc.dat,-1,0,8,c,56806640,None,16.69
+SprintzXff_Huf -80,9817210,324.79,msrc,1044.6,/rowmajor/uint8/msrc/msrc.dat,-1,0,8,c,56806640,None,17.28
+SIMDBP128,10737088,10414.47,ampd_power,9463.92,/colmajor/uint8-as-uint32/ampd_power/ampd_power.dat,-1,0,8,f,96710400,None,11.1
+FastPFOR,9956172,1776.86,ampd_power,8769.79,/colmajor/uint8-as-uint32/ampd_power/ampd_power.dat,-1,0,8,f,96710400,None,10.29
+Simple8B,9961428,4073.27,ampd_power,8547.8,/colmajor/uint8-as-uint32/ampd_power/ampd_power.dat,-1,0,8,f,96710400,None,10.3
+SIMDBP128,3158148,10165.62,ampd_water,10936.67,/colmajor/uint8-as-uint32/ampd_water/ampd_water.dat,-1,0,8,f,25228880,None,12.52
+FastPFOR,2384624,1388.52,ampd_water,6077.09,/colmajor/uint8-as-uint32/ampd_water/ampd_water.dat,-1,0,8,f,25228880,None,9.45
+Simple8B,2894932,3685.5,ampd_water,5957.8,/colmajor/uint8-as-uint32/ampd_water/ampd_water.dat,-1,0,8,f,25228880,None,11.47
+SIMDBP128,2358400,11520.71,ampd_gas,11209.89,/colmajor/uint8-as-uint32/ampd_gas/ampd_gas.dat,-1,0,8,f,25228860,None,9.35
+FastPFOR,1713756,1730.41,ampd_gas,12181.65,/colmajor/uint8-as-uint32/ampd_gas/ampd_gas.dat,-1,0,8,f,25228860,None,6.79
+Simple8B,2191932,4967.45,ampd_gas,10685.21,/colmajor/uint8-as-uint32/ampd_gas/ampd_gas.dat,-1,0,8,f,25228860,None,8.69
+SIMDBP128,104835476,8583.3,uci_gas,7889.58,/colmajor/uint8-as-uint32/uci_gas/uci_gas.dat,-1,0,8,f,603847440,None,17.36
+FastPFOR,104703144,1946.11,uci_gas,7522.51,/colmajor/uint8-as-uint32/uci_gas/uci_gas.dat,-1,0,8,f,603847440,None,17.34
+Simple8B,115776164,4577.35,uci_gas,7708.22,/colmajor/uint8-as-uint32/uci_gas/uci_gas.dat,-1,0,8,f,603847440,None,19.17
+SIMDBP128,89497560,5554.28,pamap,5325.04,/colmajor/uint8-as-uint32/pamap/pamap.dat,-1,0,8,f,387831328,None,23.08
+FastPFOR,89416844,1931.55,pamap,7771.98,/colmajor/uint8-as-uint32/pamap/pamap.dat,-1,0,8,f,387831328,None,23.06
+Simple8B,100810548,3556.06,pamap,6791.75,/colmajor/uint8-as-uint32/pamap/pamap.dat,-1,0,8,f,387831328,None,25.99
+SIMDBP128,41054560,8965.17,msrc,7686.43,/colmajor/uint8-as-uint32/msrc/msrc.dat,-1,0,8,f,227226560,None,18.07
+FastPFOR,41090384,1940.54,msrc,8331.94,/colmajor/uint8-as-uint32/msrc/msrc.dat,-1,0,8,f,227226560,None,18.08
+Simple8B,46349932,3893.25,msrc,7986.4,/colmajor/uint8-as-uint32/msrc/msrc.dat,-1,0,8,f,227226560,None,20.4
+Zstd -1,10313499,429.77,ampd_power,771.01,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,21.33
+Zstd -9,8587696,50.06,ampd_power,864.82,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,17.76
+Snappy,15247920,548.67,ampd_power,1467.95,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,31.53
+LZO -1,14716708,721.33,ampd_power,885.96,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,30.43
+LZO -9,14716708,770.2,ampd_power,876.31,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,30.43
+LZ4,14997697,861.07,ampd_power,2005.39,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,31.02
+Zlib -1,9881181,127.1,ampd_power,410.31,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,20.43
+Zlib -9,8479158,2.31,ampd_power,425.12,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,17.54
+Huffman,18435845,796.15,ampd_power,976.19,/colmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,f,48355200,None,38.13
+Zstd -1,553266,959.08,ampd_water,1924.98,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,4.39
+Zstd -9,518256,191.61,ampd_water,1481.37,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,4.11
+Snappy,1286644,1792.46,ampd_water,2007.05,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,10.2
+LZO -1,973831,2078.78,ampd_water,985.52,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,7.72
+LZO -9,973831,2066.35,ampd_water,1355.23,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,7.72
+LZ4,902871,2034.35,ampd_water,3220.09,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,7.16
+Zlib -1,656938,294.49,ampd_water,721.71,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,5.21
+Zlib -9,501739,23.87,ampd_water,605.42,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,3.98
+Huffman,5190262,776.74,ampd_water,882.47,/colmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,f,12614440,None,41.15
+Zstd -1,285242,2085.45,ampd_gas,2702.54,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,2.26
+Zstd -9,259385,357.1,ampd_gas,2679.6,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,2.06
+Snappy,966115,2819.73,ampd_gas,2231.16,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,7.66
+LZO -1,558014,3337.3,ampd_gas,842.31,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,4.42
+LZO -9,558014,3361.15,ampd_gas,1015.28,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,4.42
+LZ4,551156,3310.21,ampd_gas,3234.6,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,4.37
+Zlib -1,370022,394.45,ampd_gas,949.93,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,2.93
+Zlib -9,237416,31.9,ampd_gas,647.14,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,1.88
+Huffman,3250619,921.04,ampd_gas,1170.84,/colmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,f,12614430,None,25.77
+Zstd -1,224390241,655.46,uci_gas,700.78,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,74.32
+Zstd -9,196232078,14.71,uci_gas,503.95,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,64.99
+Snappy,259610563,1358.71,uci_gas,3273.34,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,85.99
+LZO -1,258017944,1412.43,uci_gas,1949.39,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,85.46
+LZO -9,258017944,1420.2,uci_gas,1983.31,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,85.46
+LZ4,262036569,1738.24,uci_gas,4611.95,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,86.79
+Zlib -1,181892293,57.51,uci_gas,241.08,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,60.24
+Zlib -9,181023994,20.66,uci_gas,239.33,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,59.96
+Huffman,231112136,796.97,uci_gas,741.78,/colmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,f,301923720,None,76.55
+Zstd -1,82337617,336.75,pamap,695.89,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,42.46
+Zstd -9,66833751,24.66,pamap,554.04,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,34.47
+Snappy,105873727,489.87,pamap,1496.43,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,54.6
+LZO -1,104094421,668.61,pamap,945.6,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,53.68
+LZO -9,104094421,668.42,pamap,945.73,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,53.68
+LZ4,104165427,615.38,pamap,2365.61,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,53.72
+Zlib -1,75589466,86.79,pamap,309.24,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,38.98
+Zlib -9,71904923,8.34,pamap,306.85,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,37.08
+Huffman,133847173,806.85,pamap,773.79,/colmajor/uint16/pamap/pamap.dat,-1,0,16,f,193915664,None,69.02
+Zstd -1,79439350,825.6,msrc,782.82,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,69.92
+Zstd -9,73800383,20.25,msrc,558.74,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,64.96
+Snappy,86564250,5095.9,msrc,4832.59,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,76.19
+LZO -1,85681043,4043.14,msrc,1769.16,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,75.41
+LZO -9,85681043,4381.11,msrc,2009.29,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,75.41
+LZ4,85623962,4509.73,msrc,6497.95,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,75.36
+Zlib -1,71904022,49.36,msrc,267.88,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,63.29
+Zlib -9,72240069,40.42,msrc,270.99,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,63.58
+Huffman,79968926,931.52,msrc,876.11,/colmajor/uint16/msrc/msrc.dat,-1,0,16,f,113613280,None,70.39
+SprintzDelta_16b -23,20491996,946.61,ampd_power,2618.09,/rowmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,c,48355200,None,42.38
+SprintzXff_16b -23,20617588,569.87,ampd_power,2846.7,/rowmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,c,48355200,None,42.64
+SprintzDelta_Huf_16b -23,15720287,541.8,ampd_power,1048.38,/rowmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,c,48355200,None,32.51
+SprintzXff_Huf_16b -23,17199304,440.62,ampd_power,897.55,/rowmajor/uint16/ampd_power/ampd_power.dat,-1,0,16,c,48355200,None,35.57
+SprintzDelta_16b -2,1432584,1260.25,ampd_water,3578.98,/rowmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,c,12614440,None,11.36
+SprintzXff_16b -2,1462834,737.89,ampd_water,1289.48,/rowmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,c,12614440,None,11.6
+SprintzDelta_Huf_16b -2,777853,931.76,ampd_water,1890.68,/rowmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,c,12614440,None,6.17
+SprintzXff_Huf_16b -2,939548,604.81,ampd_water,757.11,/rowmajor/uint16/ampd_water/ampd_water.dat,-1,0,16,c,12614440,None,7.45
+SprintzDelta_16b -3,1088874,1001.74,ampd_gas,3180.64,/rowmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,c,12614430,None,8.63
+SprintzXff_16b -3,1128962,682.25,ampd_gas,0.0,/rowmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,c,12614430,None,8.95
+SprintzDelta_Huf_16b -3,343650,804.2,ampd_gas,2018.82,/rowmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,c,12614430,None,2.72
+SprintzXff_Huf_16b -3,471938,585.96,ampd_gas,0.0,/rowmajor/uint16/ampd_gas/ampd_gas.dat,-1,0,16,c,12614430,None,3.74
+SprintzDelta_16b -18,155286250,931.1,uci_gas,2718.95,/rowmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,c,301923720,None,51.43
+SprintzXff_16b -18,153154330,661.93,uci_gas,2522.25,/rowmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,c,301923720,None,50.73
+SprintzDelta_Huf_16b -18,152489792,523.42,uci_gas,810.34,/rowmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,c,301923720,None,50.51
+SprintzXff_Huf_16b -18,151847377,421.39,uci_gas,787.88,/rowmajor/uint16/uci_gas/uci_gas.dat,-1,0,16,c,301923720,None,50.29
+SprintzDelta_16b -31,80117986,1016.58,pamap,3591.09,/rowmajor/uint16/pamap/pamap.dat,-1,0,16,c,193915664,None,41.32
+SprintzXff_16b -31,80098584,670.63,pamap,3387.26,/rowmajor/uint16/pamap/pamap.dat,-1,0,16,c,193915664,None,41.31
+SprintzDelta_Huf_16b -31,72050187,541.01,pamap,976.48,/rowmajor/uint16/pamap/pamap.dat,-1,0,16,c,193915664,None,37.16
+SprintzXff_Huf_16b -31,73038568,438.68,pamap,975.2,/rowmajor/uint16/pamap/pamap.dat,-1,0,16,c,193915664,None,37.67
+SprintzDelta_16b -80,50232400,950.52,msrc,3401.19,/rowmajor/uint16/msrc/msrc.dat,-1,0,16,c,113613280,None,44.21
+SprintzXff_16b -80,50109440,671.17,msrc,3037.33,/rowmajor/uint16/msrc/msrc.dat,-1,0,16,c,113613280,None,44.11
+SprintzDelta_Huf_16b -80,49088630,547.4,msrc,985.35,/rowmajor/uint16/msrc/msrc.dat,-1,0,16,c,113613280,None,43.21
+SprintzXff_Huf_16b -80,49147025,434.34,msrc,944.9,/rowmajor/uint16/msrc/msrc.dat,-1,0,16,c,113613280,None,43.26
+SIMDBP128,28143040,9522.38,ampd_power,9253.14,/colmajor/uint16-as-uint32/ampd_power/ampd_power.dat,-1,0,16,f,96710400,None,29.1
+FastPFOR,25872320,1642.95,ampd_power,8307.21,/colmajor/uint16-as-uint32/ampd_power/ampd_power.dat,-1,0,16,f,96710400,None,26.75
+Simple8B,28809388,2283.68,ampd_power,5274.16,/colmajor/uint16-as-uint32/ampd_power/ampd_power.dat,-1,0,16,f,96710400,None,29.79
+SIMDBP128,7942168,11140.46,ampd_water,9834.24,/colmajor/uint16-as-uint32/ampd_water/ampd_water.dat,-1,0,16,f,25228880,None,31.48
+FastPFOR,5718332,1619.93,ampd_water,9002.73,/colmajor/uint16-as-uint32/ampd_water/ampd_water.dat,-1,0,16,f,25228880,None,22.67
+Simple8B,7195628,2310.4,ampd_water,4301.44,/colmajor/uint16-as-uint32/ampd_water/ampd_water.dat,-1,0,16,f,25228880,None,28.52
+SIMDBP128,5226256,12336.8,ampd_gas,11015.53,/colmajor/uint16-as-uint32/ampd_gas/ampd_gas.dat,-1,0,16,f,25228860,None,20.72
+FastPFOR,3644672,1885.12,ampd_gas,11663.27,/colmajor/uint16-as-uint32/ampd_gas/ampd_gas.dat,-1,0,16,f,25228860,None,14.45
+Simple8B,4757868,3649.38,ampd_gas,8325.0,/colmajor/uint16-as-uint32/ampd_gas/ampd_gas.dat,-1,0,16,f,25228860,None,18.86
+SIMDBP128,246655672,7792.97,uci_gas,5308.77,/colmajor/uint16-as-uint32/uci_gas/uci_gas.dat,-1,0,16,f,603847440,None,40.85
+FastPFOR,246475476,1909.93,uci_gas,7218.86,/colmajor/uint16-as-uint32/uci_gas/uci_gas.dat,-1,0,16,f,603847440,None,40.82
+Simple8B,286576188,2265.92,uci_gas,5211.7,/colmajor/uint16-as-uint32/uci_gas/uci_gas.dat,-1,0,16,f,603847440,None,47.46
+SIMDBP128,181350632,7458.44,pamap,6615.97,/colmajor/uint16-as-uint32/pamap/pamap.dat,-1,0,16,f,387831328,None,46.76
+FastPFOR,181279660,1963.4,pamap,7085.52,/colmajor/uint16-as-uint32/pamap/pamap.dat,-1,0,16,f,387831328,None,46.74
+Simple8B,226207452,1943.49,pamap,4416.28,/colmajor/uint16-as-uint32/pamap/pamap.dat,-1,0,16,f,387831328,None,58.33
+SIMDBP128,83672272,8420.78,msrc,7449.24,/colmajor/uint16-as-uint32/msrc/msrc.dat,-1,0,16,f,227226560,None,36.82
+FastPFOR,83706416,1995.39,msrc,7632.64,/colmajor/uint16-as-uint32/msrc/msrc.dat,-1,0,16,f,227226560,None,36.84
+Simple8B,102493284,2509.05,msrc,5345.1,/colmajor/uint16-as-uint32/msrc/msrc.dat,-1,0,16,f,227226560,None,45.11
+Zstd -1,3500190,491.87,ampd_power,887.46,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,14.48
+Zstd -9,3034289,71.75,ampd_power,968.8,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,12.55
+Snappy,5528841,696.15,ampd_power,1444.96,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,22.87
+LZO -1,5249825,902.88,ampd_power,917.02,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,21.71
+LZO -9,5249825,827.28,ampd_power,804.96,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,21.71
+LZ4,5623021,793.58,ampd_power,2578.78,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,23.26
+Zlib -1,3788216,145.29,ampd_power,435.13,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,15.67
+Zlib -9,2923187,2.75,ampd_power,418.13,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,12.09
+Huffman,6753414,786.57,ampd_power,1042.49,/colmajor/uint8/ampd_power/ampd_power.dat,-1,0,8,f,24177600,None,27.93
+Zstd -1,266988,1129.13,ampd_water,1600.7,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,4.23
+Zstd -9,245104,177.02,ampd_water,2090.14,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,3.89
+Snappy,632884,1563.33,ampd_water,1839.49,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,10.03
+LZO -1,455644,1858.32,ampd_water,681.71,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,7.22
+LZO -9,455644,1850.87,ampd_water,711.36,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,7.22
+LZ4,439552,1561.34,ampd_water,2747.2,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,6.97
+Zlib -1,339491,289.82,ampd_water,762.68,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,5.38
+Zlib -9,245936,11.3,ampd_water,530.48,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,3.9
+Huffman,1691375,843.12,ampd_water,1154.81,/colmajor/uint8/ampd_water/ampd_water.dat,-1,0,8,f,6307220,None,26.82
+Zstd -1,90002,2055.24,ampd_gas,2156.93,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,1.43
+Zstd -9,72767,311.89,ampd_gas,3064.26,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,1.15
+Snappy,398464,3046.75,ampd_gas,2159.16,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,6.32
+LZO -1,190097,3614.9,ampd_gas,772.11,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,3.01
+LZO -9,190097,3746.57,ampd_gas,766.7,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,3.01
+LZ4,192297,3952.67,ampd_gas,3248.45,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,3.05
+Zlib -1,130035,378.96,ampd_gas,635.64,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,2.06
+Zlib -9,68245,18.72,ampd_gas,524.52,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,1.08
+Huffman,1242544,873.11,ampd_gas,1323.86,/colmajor/uint8/ampd_gas/ampd_gas.dat,-1,0,8,f,6307215,None,19.7
+Zstd -1,26315575,371.49,uci_gas,701.01,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,17.43
+Zstd -9,21770445,54.17,uci_gas,932.96,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,14.42
+Snappy,39783580,502.06,uci_gas,1050.55,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,26.35
+LZO -1,40238675,695.17,uci_gas,609.97,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,26.65
+LZO -9,40238675,668.94,uci_gas,610.29,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,26.65
+LZ4,44411728,677.51,uci_gas,1780.22,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,29.42
+Zlib -1,24756230,117.74,uci_gas,369.09,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,16.4
+Zlib -9,21206689,3.99,uci_gas,425.07,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,14.05
+Huffman,80631273,818.33,uci_gas,897.8,/colmajor/uint8/uci_gas/uci_gas.dat,-1,0,8,f,150961860,None,53.41
+Zstd -1,13427604,488.06,pamap,978.61,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,13.85
+Zstd -9,11630024,76.11,pamap,1063.42,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,11.99
+Snappy,21255057,676.73,pamap,1446.21,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,21.92
+LZO -1,21094509,896.19,pamap,801.55,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,21.76
+LZO -9,21094509,892.95,pamap,811.59,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,21.76
+LZ4,22370835,928.68,pamap,2344.79,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,23.07
+Zlib -1,14968406,162.89,pamap,469.06,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,15.44
+Zlib -9,11127605,4.07,pamap,492.66,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,11.48
+Huffman,40550240,816.51,pamap,953.58,/colmajor/uint8/pamap/pamap.dat,-1,0,8,f,96957832,None,41.82
+Zstd -1,15318913,353.08,msrc,718.05,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,26.97
+Zstd -9,12332908,44.09,msrc,721.64,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,21.71
+Snappy,19366230,454.88,msrc,1193.08,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,34.09
+LZO -1,19465172,525.27,msrc,521.29,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,34.27
+LZO -9,19465172,590.98,msrc,568.0,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,34.27
+LZ4,20155041,548.15,msrc,1819.32,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,35.48
+Zlib -1,14465817,107.03,msrc,324.98,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,25.47
+Zlib -9,12299101,9.17,msrc,338.98,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,21.65
+Huffman,32862112,887.1,msrc,982.05,/colmajor/uint8/msrc/msrc.dat,-1,0,8,f,56806640,None,57.85

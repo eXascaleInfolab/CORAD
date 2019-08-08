@@ -1,0 +1,6 @@
+Algorithm,Compressed size,Compression speed,Dataset,Decompression speed,Filename,Memlimit,MinIters,Nbits,Nthreads,Order,Original size,Preprocs,Query,Ratio
+Memcpy,12701242880,4275.07,msrc_split,1942.0,300 files,-1,0,16,15,c,12701242880,None,1,100.0
+SprintzDelta_16b -80,6356818400,843.87,msrc_split,4632.97,300 files,-1,0,16,15,c,12715032800,None,1,49.99
+SprintzXff_16b -80,6336503584,595.38,msrc_split,3786.7,300 files,-1,0,16,15,c,12690113440,None,1,49.93
+SprintzDelta_Huf_16b -80,6203025912,456.93,msrc_split,630.79,300 files,-1,0,16,15,c,12673383680,None,1,48.95
+SprintzXff_Huf_16b -80,6207605009,375.03,msrc_split,590.28,300 files,-1,0,16,15,c,12681914880,None,1,48.95

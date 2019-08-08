@@ -1,0 +1,9 @@
+Algorithm,Compressed size,Compression speed,Dataset,Decompression speed,Filename,Memlimit,MinIters,Nbits,Nthreads,Order,Original size,Preprocs,Query,Ratio
+Memcpy,913232480,4869.58,msrc_split,6610.46,300 files,-1,0,16,4,f,913232480,None,1,100.0
+Zstd -1,648700032,418.9,msrc_split,791.4,300 files,-1,0,16,4,f,903199680,None,1,71.82
+Zstd -9,645971490,84.74,msrc_split,670.22,300 files,-1,0,16,4,f,907625760,None,1,71.17
+Snappy,697678544,3614.11,msrc_split,5231.0,300 files,-1,0,16,4,f,899739680,None,1,77.54
+LZ4,684389936,1875.29,msrc_split,5113.05,300 files,-1,0,16,4,f,906889600,None,1,75.47
+Zlib -1,615521988,36.89,msrc_split,208.84,300 files,-1,0,16,4,f,904079680,None,1,68.08
+Zlib -9,612200555,28.09,msrc_split,207.54,300 files,-1,0,16,4,f,899058080,None,1,68.09
+Huffman,733251201,581.14,msrc_split,605.0,300 files,-1,0,16,4,f,903424576,None,1,81.16
