@@ -13,7 +13,7 @@ if __name__ == "__main__":
     LEN_TRICKLET = 10
     # LEN_TRICKLET = NBWEEKS * 7
     NB_ATOMS = 6
-    ERROR_THRES = 0.1
+    ERROR_THRES = 1
     TIMESTAMP = time.time()
 
     CORR_THRESHOLD = 1 - ERROR_THRES / 2
@@ -93,9 +93,9 @@ if __name__ == "__main__":
     print('Old error:', "{0:.5}".format(s.mean(errors_old)))
 
     # SAVE THE DATA FILES
-    # save_object(time_series_data, 'outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
-    # save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
-    # save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
+    save_object(time_series_data, 'outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
+    save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
+    save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
 
     # # NORMALIZING DATA
     #
