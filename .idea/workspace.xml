@@ -2,47 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a9ad354-3506-49ee-9eec-778d77bf412a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debugging.py" beforeDir="false" afterPath="$PROJECT_DIR$/debugging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library.py" beforeDir="false" afterPath="$PROJECT_DIR$/library.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/Adaptive_chebyshev.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/Adaptive_chebyshev_tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/Chebyshev compression.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/Data_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/Lempel_Ziv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/MIT_BIH_Loader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/REDD_Loader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/__init__ copy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/notebooks/chebyshev_compression.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/DataLoader/Data_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/DataLoader/MIT_BIH_Loader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/DataLoader/REDD_Loader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/DataLoader/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/compression_funcs/Adaptive_chebyshev.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/compression_funcs/Adaptive_chebyshev_tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/compression_funcs/Lempel_Ziv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/compression_funcs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master/src/compression_funcs/chebyshev_compression.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/lzbench-master/_python/datasets/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/lzbench-master/_python/datasets/paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/sprintz-master/.ipynb_checkpoints/Chebyshev compression-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/sprintz-master/Chebyshev compression.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATASETS/20160930_203718-2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DATASETS/20160930_203718-2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master_archived/notebooks/Chebyshev compression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master_archived/notebooks/Chebyshev compression.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master_archived/notebooks/ecg_temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/Adaptive-Chebyshev-Compression-master_archived/notebooks/ecg_temp.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/.ipynb_checkpoints/Wavelet-Based ECG Compression-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/.ipynb_checkpoints/Wavelet-Based ECG Compression-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/.ipynb_checkpoints/pull_physionet_data-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/.ipynb_checkpoints/pull_physionet_data-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/PigAirwayPressure.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/PigAirwayPressure.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/Wavelet-Based ECG Compression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/Wavelet-Based ECG Compression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/PRD.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/PRD.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/reconstructed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_quantized.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_quantized.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_rescaled.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_rescaled.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_scaled.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_scaled.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_thresholding.png" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/figs/wavelet_thresholding.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/pull_physionet_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/other-compressions/wavelet-based-ecg-compression-master/pull_physionet_data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs/PigAirwayPressure_14_0.4_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_script.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_script.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_script2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_script2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yoga_after.txt" beforeDir="false" afterPath="$PROJECT_DIR$/yoga_after.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yoga_before.txt" beforeDir="false" afterPath="$PROJECT_DIR$/yoga_before.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +25,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-26">
+            <state relative-caret-position="425">
               <caret line="908" column="4" selection-start-line="908" selection-start-column="4" selection-end-line="908" selection-end-column="4" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -78,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="109" selection-end-column="77" />
+            <state relative-caret-position="528">
+              <caret line="124" column="4" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="22" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -112,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/debugging.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -131,7 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reconstruc</find>
       <find>mean</find>
       <find>recons</find>
       <find>with</find>
@@ -161,6 +129,7 @@
       <find>reconstruction</find>
       <find>zscore</find>
       <find>to_csv</find>
+      <find>zsc</find>
     </findStrings>
     <replaceStrings>
       <replace>../Datasets</replace>
@@ -319,7 +288,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="23" width="1611" height="914" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2702358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -378,13 +346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input_output.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dictionary_learning.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -392,9 +353,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/debugging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/library.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
+        <state relative-caret-position="425">
           <caret line="908" column="4" selection-start-line="908" selection-start-column="4" selection-end-line="908" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -403,20 +374,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/debugging.py">
+    <entry file="file://$PROJECT_DIR$/input_output.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="109" selection-end-column="77" />
+        <state relative-caret-position="528">
+          <caret line="124" column="4" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="22" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
