@@ -286,10 +286,13 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     for k in corr_coded_tricklets.keys():
         # for each window and shift value
         for w in corr_coded_tricklets[k].keys():
-            i_m, shift = corr_coded_tricklets[k][w]
+            i_m = corr_coded_tricklets[k][w]
+            # i_m, shift = corr_coded_tricklets[k][w]
+            # print(shift)
             if k not in result.keys():
                 result[k] = {}
-            result[k][w] = [x + shift for x in result[i_m][w]]
+            result[k][w] = [x  for x in result[i_m][w]]
+            # result[k][w] = [x + shift for x in result[i_m][w]]
 
             # print(ts[k][w])
             # print(result[k][w])
@@ -360,9 +363,11 @@ def reconstructDataMulti_with_correlation(atoms_coded_tricklets, corr_coded_tric
     return resultList
 
 
-def find_corr_list(result, corr_coded_tricklets, ts, window, shift):
+# def find_corr_list(result, corr_coded_tricklets, ts, window, shift):
+def find_corr_list(result, corr_coded_tricklets, ts, window):
     try:
-        return result[ts][window], shift
+        return result[ts][window]
+        # return result[ts][window], shift
     except:
         print(ts, window)
         raise
@@ -681,7 +686,7 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
         # for each line (TS)
         # print('shift reduced error?')
 
-        shift_works = []
+        # shift_works = []
 
         # for each time series
         for k, X in C.items():
@@ -709,11 +714,13 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
                 y = ts[k][w]
                 if k not in corr_coded_tricklets.keys():
                     corr_coded_tricklets[k] = {}
-                corr_coded_tricklets[k][w] = i_m, shift_mean(x, y)
+                # corr_coded_tricklets[k][w] = i_m, shift_mean(x, y)
+                corr_coded_tricklets[k][w] = i_m
                 # print(shift_mean(x, y))
 
-                z = [v + shift_mean(x, y) for v in x]
-                shift_works.append(mse(x, y) > mse(x, z))
+                # z = [v + shift_mean(x, y) for v in x]
+                z = [v for v in x]
+                # shift_works.append(mse(x, y) > mse(x, z))
                 # plt.plot(x)
                 # plt.plot(y)
 
@@ -925,10 +932,34 @@ def compress_with_correlation(ts, correlation_matrix, Dictionary, corr_threshold
 
     # print(corr_coded_tricklets)
 
+    import itertools
+
     errors = []
+    result_before = []
+    result_after = []
     # print("Error's norm of the correlation-aware method: ", end="")
     for i in range(len(ts)):
         errors.append(calculate_RMSE(ts[i], recons[i]))
+        # print(i)
+        result_before.append(list(itertools.chain.from_iterable(ts[i])))
+        result_after.append(list(itertools.chain.from_iterable(recons[i])))
+        #
+        # print(len(result))
+        # print(len(result[0]))
+
+    result_after = pd.DataFrame(result_after)
+    result_before = pd.DataFrame(result_before)
+    result_before = result_before.T
+    result_after = result_after.T
+    print(result_before.shape)
+    print(result_after.shape)
+    print(result_before.head())
+    print(result_after.head())
+
+
+    result_after.to_csv('yoga_after.txt', float_format='%.6f', header=False, sep=' ', index=False)
+    result_before.to_csv('yoga_before.txt', float_format='%.6f', header=False, sep=' ', index=False)
+
         # errors.append(np.square(np.array(normalized(ts[i]) - np.array(normalized(recons[i]))) ** 2).mean(axis=None))
         # for j in range(len(ts[i])):
         # try:

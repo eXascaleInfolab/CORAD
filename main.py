@@ -4,8 +4,9 @@ from decimal import Decimal
 import statistics as s
 from scipy import stats
 
+
 def exportResults(name, dic):
-    download_dir = name+".csv"  # where you want the file to be downloaded to
+    download_dir = name + ".csv"  # where you want the file to be downloaded to
 
     csv = open(download_dir, "w")
     # "w" indicates that you're writing strings to the file
@@ -23,11 +24,11 @@ def exportResults(name, dic):
 if __name__ == "__main__":
     import sys
 
-    # print('Number of arguments:', len(sys.argv), 'arguments.')
-    # print('Argument List:', str(sys.argv))
+    print('Number of arguments:', len(sys.argv), 'arguments.')
+    print('Argument List:', str(sys.argv))
 
-    # for i in range(len(sys.argv)):
-    #     print(i, sys.argv[i])
+    for i in range(len(sys.argv)):
+        print(i, sys.argv[i])
 
     dataset = sys.argv[1]
     datasetPath = sys.argv[2]
@@ -38,43 +39,56 @@ if __name__ == "__main__":
     # LEN_TRICKLET = NBWEEKS * 7
     NB_ATOMS = int(sys.argv[6])
 
-
     TIMESTAMP = time.time()
 
-    CORR_THRESHOLD = 1 - ERROR_THRES / 2
-
     # CONSTANTS
-    # # CORR_THRESHOLD = 0.95
+    # CORR_THRESHOLD = 0.95
     # NBWEEKS = 2
     # LEN_TRICKLET = 10
-    # # LEN_TRICKLET = NBWEEKS * 7
-    # NB_ATOMS = 6
-    # ERROR_THRES = 1
+    # LEN_TRICKLET = NBWEEKS * 7
+    # NB_ATOMS = 4
+    # ERROR_THRES = 0.2
     # TIMESTAMP = time.time()
     #
-    # CORR_THRESHOLD = 1 - ERROR_THRES / 2
+    CORR_THRESHOLD = 1 - ERROR_THRES / 2
 
+    # datasetPath = '../Datasets/Sales_Transactions_Dataset_Weekly.csv'
     # datasetPath = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718.csv'
     # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
     # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
     # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
     # datasetPath = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TEST.tsv'
+    # datasetPath = '../Datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv'
+    # datasetPath = '../Datasets/bafu_normal.csv'
 
     # datasetPathDictionary = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv'
     # datasetPathDictionary = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TRAIN.tsv'
+    # datasetPathDictionary = '../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv'
 
     # READING THE DATASETS
 
-    df_data = pd.read_csv(datasetPath, sep='\t')
-    # df_data = pd.read_csv(datasetPath)
+    # df_data = pd.read_csv(datasetPath, sep='\t')
+    # df_data = df_data.T
+    df_data = pd.read_csv(datasetPath, header=None)
 
-    df_data_learning = pd.read_csv(datasetPathDictionary, sep='\t')
-    # df_data_learning = df_data_learning.iloc[:, 0:3]
+    print(df_data.shape)
+    print(df_data.head())
+
+    # df_data_learning = pd.read_csv(datasetPathDictionary, sep='\t')
+    # df_data_learning = df_data_learning.T
+    df_data = pd.DataFrame(stats.zscore(df_data))
+
+    df_data_learning = df_data.iloc[:, 1:8]
 
     # z-score normalizing the data
 
-    df_data = pd.DataFrame(stats.zscore(df_data))
-    df_data_learning = pd.DataFrame(stats.zscore(df_data_learning))
+    #df_data.round(6)
+    #print(df_data.head())
+    #df_data.to_csv('yoga_before.txt', header=False, float_format='%.6f', sep=' ', index=False)
+    # df_data.plot()
+    # plt.draw()
+
+    # df_data_learning = pd.DataFrame(stats.zscore(df_data_learning))
 
     # CREATING TRICKLETS
 
@@ -89,13 +103,12 @@ if __name__ == "__main__":
         correlation_matrix.append(df_data[i * LEN_TRICKLET: (i + 1) * LEN_TRICKLET].corr())
     print("done!")
 
-
     # DICTIONARY
 
     print("Building the dictionary ... ", end='')
-    # for i in range(1, len(time_series_data_dictionary)):
-    #     time_series_data_dictionary[0].extend(time_series_data_dictionary[i])
-    Dictionary = learnDictionary(time_series_data_dictionary[0], 100, 1, 150, datasetPath + '.pkl')
+    for i in range(1, int(len(time_series_data_dictionary))):
+        time_series_data_dictionary[0].extend(time_series_data_dictionary[i])
+    Dictionary = learnDictionary(time_series_data_dictionary[0], 200, 1, 150, datasetPath + '.pkl')
     # data = read_time_series('../Datasets/../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv')
     # tricklets = getTrickletsTS(data, 2, NBWEEKS)
     # print(len(tricklets[0]))
@@ -126,8 +139,7 @@ if __name__ == "__main__":
 
     # dic['compression_time_without_correltion']= round(Decimal(end1 - start1), 2)
     # dic['compression_time_with_correltion']= round(Decimal(end2 - start2), 2)
-    dic['compression_time']= (round(Decimal(end2 - start2), 2), round(Decimal(end1 - start1), 2))
-
+    dic['compression_time'] = (round(Decimal(end2 - start2), 2), round(Decimal(end1 - start1), 2))
 
     # print(corr_coded_tricklets)
 
@@ -139,15 +151,14 @@ if __name__ == "__main__":
     # dic['error_old'] = "{0:.5}".format(s.mean(errors_old))
     dic['error'] = ("{0:.5}".format(s.mean(errors_new)), "{0:.5}".format(s.mean(errors_old)))
 
-
     # SAVE THE DATA FILES
     save_object(time_series_data, 'outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
     save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
-    save_object((atoms_coded_tricklets, corr_coded_tricklets), 'outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
-
-
+    save_object((atoms_coded_tricklets, corr_coded_tricklets),
+                'outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
 
     import os
+
     statinfo_old = os.stat('outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
     statinfo_old = statinfo_old.st_size
     # dic['size_old'] = statinfo.st_size
@@ -158,15 +169,14 @@ if __name__ == "__main__":
     statinfo = os.stat('outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
     statinfo = statinfo.st_size
 
-    dic['size_original'] = (statinfo,statinfo)
+    dic['size_original'] = (statinfo, statinfo)
     dic['compressed size'] = (statinfo_new, statinfo_old)
 
     dic['compression_ratio'] = (dic['size_original'][0] / (statinfo_new), dic['size_original'][0] / statinfo_old)
 
-    exportResults('outputs/'+sys.argv[1]+'_'+sys.argv[4]+'_'+sys.argv[5]+'_'+sys.argv[6], dic)
+    exportResults('outputs/'+sys.argv[1]+'_'+sys.argv[4]+'_'+sys.argv[5]+'_'+sys.argv[6]+'.txt', dic)
 
-    input("Execution done")
-
+    # input("Execution done")
 
     # # NORMALIZING DATA
     #
