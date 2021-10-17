@@ -38,7 +38,7 @@ ___
 
 ### Arguments
 
- | -alg  | -d  | 
+ | alg  | pos  | 
  | -------- | -------- | 
  | dataset    | 1        | 
  | datasetPath  | 2        | 
