@@ -1,19 +1,14 @@
 # CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding
 
-ImputeBench implements 15 SOTA recovery techniques for blocks of missing values in time series and evaluates their precision and runtime on various real-world time series datasets using different recovery scenarios. Technical details can be found in our 
-PVLDB 2020 paper:  <a href = "http://www.vldb.org/pvldb/vol13/p768-khayati.pdf">Mind the Gap: An Experimental Evaluation of Imputation of Missing Values Techniques in Time Series </a>. The benchmark can be easity extended with new algorithms (C/C++, Python or Matlab), new datasets and new scenarios.  
-
-- The benchmark implements the following algorithms (in C++): [CDRec](https://ieeexplore.ieee.org/document/6816643), [DynaMMo](https://dl.acm.org/doi/10.1145/1557019.1557078), [GROUSE](http://proceedings.mlr.press/v51/zhang16b.html),  [ROSL](https://ieeexplore.ieee.org/abstract/document/6909890), [SoftImpute](https://www.jmlr.org/papers/v11/mazumder10a.html), [SPIRIT](https://dl.acm.org/doi/10.5555/1083592.1083674), [STMVL](https://www.ijcai.org/Proceedings/16/Papers/384.pdf), [SVDImpute](https://academic.oup.com/bioinformatics/article/17/6/520/272365), [SVT](https://epubs.siam.org/doi/10.1137/080738970?mobileUi=0), [TeNMF](http://proceedings.mlr.press/v70/mei17a.html), [TRMF](https://papers.nips.cc/paper/6160-temporal-regularized-matrix-factorization-for-high-dimensional-time-series-prediction.pdf), and [TKCM](https://openproceedings.org/2017/conf/edbt/paper-112.pdf). 
-- We recently added these algorithms (in Python): [SSA](https://dl.acm.org/doi/10.1145/3287319), [MRNN](https://ieeexplore.ieee.org/document/8485748) and [BRITS](http://papers.nips.cc/paper/7911-brits-bidirectional-recurrent-imputation-for-time-series).
+We introduced CORAD, a new real-time technique to effectively compress time series streams. CORAD relies on a dictionary-based technique that exploits the correlation across time series. In addition, CORAD allows to adjust the degree of accuracy that is acceptable depending on the use-case. Technical details can be found in our 
+Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019bigdata.pdf">CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding </a>. 
 
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/master/Datasets).
 - The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Award**](#award) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Citation**](#citation)
 
 ___
-
-
 
 
 ## Prerequisites
@@ -42,28 +37,18 @@ ___
 ```
 
 ### Arguments
+ | -arg  | -pos |
+ | -------- | -------- | -------- |
+ | dataset 						| sys.argv[1]			|
+ | datasetPath 					| sys.argv[2]			|
+ | datasetPathDictionary 		| sys.argv[3]			|
+ | # NBWEEKS 					| sys.argv[2]			|
+ | LEN_TRICKLET 				| int(sys.argv[4])		|
+ | ERROR_THRES 					| float(sys.argv[5])	|
+ | # LEN_TRICKLET 				| NBWEEKS * 7			|
+ | NB_ATOMS 					| int(sys.argv[6])		|
 
- | -alg  | -d  |  -scen 
- | -------- | -------- | -------- |
- | cdrec    | airq        | miss_perc |
- | dynammo  | bafu        | ts_length |
- | grouse   | chlorine    | ts_nbr    |
- | rosl     | climate     | miss_disj |
- | softimp  | drift10     | miss_over |
- | svdimp   | electricity | mcar      |
- | svt      | meteo       | blackout  |
- | stmvl    | temp        | *all*     |
- | spirit   | bafu_red    |           |
- | tenmf    | drift10_red |           |
- | tkcm     | *all*       |           |
- | trmf     |             |           |
- | *all*    |             |           |
- | -------- | -------- | -------- |
- | New algs |             |           |
- | -------- | -------- | -------- |
- | ssa      |             |           |
- | m-rnn    |             |           |
- | brits    |             |           |
+
 
 
 
