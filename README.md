@@ -40,9 +40,9 @@ ___
  | dataset    | 1        | 
  | datasetPath  | 2        | 
  | datasetPathDictionary   | 3    | 
- | LEN_TRICKLET     | 4     | 
- | ERROR_THRES  | 5     |
- | NB_ATOMS   | 6 |
+ | len_tricklet     | 4     | 
+ | error_thres  | 5     |
+ | nb_atoms   | 6 |
 
 
 ### Execution examples
@@ -51,15 +51,20 @@ ___
 1. Run a single algorithm (cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
 
-python3 main.py 'Gas' 'Datasets/20160930_203718-2.csv' '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv' 40 0.4 4
+python3 main.py 
 
-python3 main.py 'Bafu' 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' 'Datasets/UCRArchive_2018/PigAirwayPressure/ PigAirwayPressure_TRAIN.tsv' 14 0.4 6
+python3 main.py --dataset 'Gas' --datasetPath 'Datasets/20160930_203718-2.csv' --datasetPathDictionary '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv' --len_tricklet 40 --error_thres 0.4 --nb_atoms 4
 
-python3 main.py 'Bafu' 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' 14 0.4 6
+python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
-python3 main.py 'PigAirwayPressure' 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' 14 0.2 6
 
-python3 main.py 'Bafu' 'Datasets/bafu_normal.csv' 'Datasets/bafu_normal.csv' 14 0.4 1
+python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
+
+python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
+
+python3 main.py --dataset 'PigAirwayPressure' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.2 --nb_atoms 6
+
+python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/Wafer/Wafer_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
 python3 main.py 'Bafu' 'Datasets/bafu_normal.csv' 'Datasets/bafu_normal.csv' 14 0.4 1
 
@@ -71,6 +76,10 @@ python3 main.py 'SonyAIBORobotSurface2' 'Datasets/UCRArchive_2018/SonyAIBORobotS
 
 python3 main.py 'Wafer' 'Datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' 'Datasets/UCRArchive_2018/Wafer/Wafer_TRAIN.tsv' 14 0.4 6
 ```
+___
+
+### Results
+All results and plots will be added to `outputs` folder. 
 
 ___
 

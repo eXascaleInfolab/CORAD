@@ -4,7 +4,7 @@ from decimal import Decimal
 import statistics as s
 from scipy import stats
 from tqdm import tqdm
-
+import argparse
 
 def exportResults(name, dic):
     download_dir = name + ".csv"  # where you want the file to be downloaded to
@@ -31,22 +31,44 @@ if __name__ == "__main__":
     for i in range(len(sys.argv)):
         print(i, sys.argv[i])
 
-    dataset = sys.argv[1]
-    datasetPath = sys.argv[2]
-    datasetPathDictionary = sys.argv[3]
-    # NBWEEKS = sys.argv[2]
-    LEN_TRICKLET = int(sys.argv[4])
-    ERROR_THRES = float(sys.argv[5])
-    # LEN_TRICKLET = NBWEEKS * 7
-    NB_ATOMS = int(sys.argv[6])
+    parser = argparse.ArgumentParser(description = 'Script for running the compression')
+    parser.add_argument('--dataset', nargs = '?', type = str, help = 'Dataset name', default = 'Gas')
+    parser.add_argument('--datasetPath', nargs = '?', type = str, help = 'Dataset path name', default = 'Datasets/20160930_203718-2.csv')
+    parser.add_argument('--datasetPathDictionary', nargs = '?', type = str, help = 'Dataset path of the dictionary', default = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv')
+    parser.add_argument('--len_tricklet', nargs = '?', type = int, help = 'Length of a tricklet', default = 40)
+    parser.add_argument('--error_thres', nargs = '?', type = float, help = 'Maximum level of threshold', default = 0.4)
+    parser.add_argument('--nb_atoms', nargs = '?', type = int, help = 'Number of atoms', default = 4)
+    #parser.add_argument('--export', nargs = '*', type = str, help = 'Path to file where to export the results', default = 'results.txt')
+    parser.add_argument('--additional_arguments', nargs = '?', type = str, help = 'Additional arguments to be passed to the scripts', default = '')
+    args = parser.parse_args()
+
+
+    dataset = args.dataset
+    datasetPath = args.datasetPath
+    datasetPathDictionary = args.datasetPathDictionary
+    len_tricklet = args.len_tricklet
+    error_thres = args.error_thres
+    nb_atoms = args.nb_atoms
+
+
+    # dataset = sys.argv[1]
+    # datasetPath = sys.argv[2]
+    # datasetPathDictionary = sys.argv[3]
+    # # NBWEEKS = sys.argv[2]
+    # len_tricklet = int(sys.argv[4])
+    # error_thres = float(sys.argv[5])
+    # # len_tricklet = NBWEEKS * 7
+    # nb_atoms = int(sys.argv[6])
+    
+
     TIMESTAMP = time.time()
-    CORR_THRESHOLD = 1 - ERROR_THRES / 2
+    CORR_THRESHOLD = 1 - error_thres / 2
 
     # READING THE DATASETS
 
     # df_data = pd.read_csv(datasetPath, sep='\t')
     # df_data = df_data.T
-    df_data = pd.read_csv(datasetPath, header=None)
+    df_data = pd.read_csv(datasetPath, header=None, sep='\t')
 
     print(df_data.shape)
     print(df_data.head())
@@ -69,16 +91,16 @@ if __name__ == "__main__":
 
     # CREATING TRICKLETS
 
-    time_series_data = dataframeToTricklets(df_data, LEN_TRICKLET)
-    time_series_data_dictionary = dataframeToTricklets(df_data_learning, LEN_TRICKLET)
+    time_series_data = dataframeToTricklets(df_data, len_tricklet)
+    time_series_data_dictionary = dataframeToTricklets(df_data_learning, len_tricklet)
 
     # CORRELATION COMPUTATION FOR EACH SEGMENT
 
     print("Computing correlation ... ", end="")
     correlation_matrix = []
-    for i in tqdm(range(int(df_data.shape[0] / LEN_TRICKLET))):
+    for i in tqdm(range(int(df_data.shape[0] / len_tricklet))):
         correlation_matrix.append(
-            df_data[i * LEN_TRICKLET : (i + 1) * LEN_TRICKLET].corr()
+            df_data[i * len_tricklet : (i + 1) * len_tricklet].corr()
         )
     print("done!")
 
@@ -104,7 +126,7 @@ if __name__ == "__main__":
     # COMPRESSING THE DATA THE TRISTAN WAY
     start1 = time.time()
     old_atoms_coded_tricklets, errors_old = compress_without_correlation(
-        time_series_data, Dictionary, NB_ATOMS, "omp"
+        time_series_data, Dictionary, nb_atoms, "omp"
     )
     end1 = time.time()
 
@@ -115,7 +137,7 @@ if __name__ == "__main__":
         correlation_matrix,
         Dictionary,
         CORR_THRESHOLD,
-        NB_ATOMS,
+        nb_atoms,
         "omp",
     )
     end2 = time.time()
@@ -187,16 +209,18 @@ if __name__ == "__main__":
 
     exportResults(
         "outputs/"
-        + sys.argv[1]
+        + str(dataset)
         + "_"
-        + sys.argv[4]
+        + str(len_tricklet)
         + "_"
-        + sys.argv[5]
+        + str(error_thres)
         + "_"
-        + sys.argv[6]
+        + str(nb_atoms)
         + ".txt",
         dic,
     )
+
+
 
     # input("Execution done")
 
