@@ -58,7 +58,7 @@ All results and plots will be added to `Results` folder. The accuracy results of
 
 1. Run a single algorithm (cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
-    python3 main.py 'Bafu' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' '../Datasets/UCRArchive_2018/PigAirwayPressure/ PigAirwayPressure_TRAIN.tsv' 14 0.4 6
+python3 main.py 'Bafu' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' '../Datasets/UCRArchive_2018/PigAirwayPressure/ PigAirwayPressure_TRAIN.tsv' 14 0.4 6
 ```
 
 ___
