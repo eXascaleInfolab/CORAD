@@ -32,8 +32,7 @@ ___
 
 
 ```bash
-    $ cd TestingFramework/bin/Debug/
-    $ mono TestingFramework.exe [arguments]
+    $ python3 main.py [arguments]
 ```
 
 ### Arguments
