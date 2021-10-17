@@ -38,32 +38,8 @@ if __name__ == "__main__":
     ERROR_THRES = float(sys.argv[5])
     # LEN_TRICKLET = NBWEEKS * 7
     NB_ATOMS = int(sys.argv[6])
-
     TIMESTAMP = time.time()
-
-    # CONSTANTS
-    # CORR_THRESHOLD = 0.95
-    # NBWEEKS = 2
-    # LEN_TRICKLET = 10
-    # LEN_TRICKLET = NBWEEKS * 7
-    # NB_ATOMS = 4
-    # ERROR_THRES = 0.2
-    # TIMESTAMP = time.time()
-    #
     CORR_THRESHOLD = 1 - ERROR_THRES / 2
-
-    # datasetPath = '../Datasets/Sales_Transactions_Dataset_Weekly.csv'
-    # datasetPath = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718.csv'
-    # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
-    # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
-    # datasetPath = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
-    # datasetPath = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TEST.tsv'
-    # datasetPath = '../Datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv'
-    # datasetPath = '../Datasets/bafu_normal.csv'
-
-    # datasetPathDictionary = '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv'
-    # datasetPathDictionary = '../Datasets/UCRArchive_2018/ACSF1/ACSF1_TRAIN.tsv'
-    # datasetPathDictionary = '../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv'
 
     # READING THE DATASETS
 
