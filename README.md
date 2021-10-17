@@ -48,27 +48,15 @@ ___
  | # LEN_TRICKLET 				| NBWEEKS * 7			|
  | NB_ATOMS 					| int(sys.argv[6])		|
 
- | -alg  | -d  |  -scen 
- | -------- | -------- | -------- |
- | cdrec    | airq        | miss_perc |
- | dynammo  | bafu        | ts_length |
- | grouse   | chlorine    | ts_nbr    |
- | rosl     | climate     | miss_disj |
- | softimp  | drift10     | miss_over |
- | svdimp   | electricity | mcar      |
- | svt      | meteo       | blackout  |
- | stmvl    | temp        | *all*     |
- | spirit   | bafu_red    |           |
- | tenmf    | drift10_red |           |
- | tkcm     | *all*       |           |
- | trmf     |             |           |
- | *all*    |             |           |
- | -------- | -------- | -------- |
- | New algs |             |           |
- | -------- | -------- | -------- |
- | ssa      |             |           |
- | m-rnn    |             |           |
- | brits    |             |           |
+ | -alg  | -d  | 
+ | -------- | -------- | 
+ | dataset    | airq        | 
+ | datasetPath  | bafu        | 
+ | datasetPathDictionary   | chlorine    | 
+ | LEN_TRICKLET     | climate     | 
+ | ERROR_THRES  | drift10     |
+ | NB_ATOMS   | electricity |
+
 
 
 
