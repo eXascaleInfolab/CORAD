@@ -58,37 +58,9 @@ All results and plots will be added to `Results` folder. The accuracy results of
 
 1. Run a single algorithm (cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
-    $ mono TestingFramework.exe -alg cdrec -d drift10 -scen miss_perc
-```
+    $ python3 main.py 'Bafu' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' '../Datasets/UCRArchive_2018/PigAirwayPressure/ PigAirwayPressure_TRAIN.tsv' 14 0.4 6
 
-2. Run two algorithms (cdrec, spirit) on a single dataset (drift10) using one scenario (missing percentage)
-```bash
-    $ mono TestingFramework.exe -alg cdrec,spirit -d drift10 -scen miss_perc
-```
 
-3. Run point 2 without runtime results
-```bash
-    $ mono TestingFramework.exe -alg cdrec,spirit -d drift10 -scen miss_perc -nort
-```
-
-4. Run the whole VLDB'20 benchmark (all algorithms, all datasets, all scenarios, precision and runtime)
-```bash
-    $ mono TestingFramework.exe -alg all -d all -scen all
-```
-**Warning**: Running the whole benchmark will take a sizeable amount of time (up to 4 days depending on the hardware) and will produce up to 15GB of output files with all recovered data and plots unless stopped early.
-
-5. Create files with missing values on one dataset (airq) using a single scenario (missing percentage)
-```bash
-    $ mono TestingFramework.exe -alg mvexport -d airq -scen miss_perc
-```
-**Note**: You need to run each scenario seperately on one or multiple datasets. Each time you execute one scenario, the `Results` folder will be overwritten with the new files.
-
-6. Additional command-line parameters
-```bash
-    $ mono TestingFramework.exe --help
-```
-
-**Remark**: Algorithms `tkcm`,  `spirit`, `ssa`, `brits` and `mr-nn`  cannot handle multiple incomplete time series. These allgorithms will not produce results for the following scenarios: `miss_disj`, `miss_over`, `mcar` and `blackout`.
 
 ### Parametrized execution
 
