@@ -37,25 +37,15 @@ ___
 ```
 
 ### Arguments
- | -alg  						|  -scen 				|
- | -------- 					|  						|
- | dataset 						| sys.argv[1]			|
- | datasetPath 					| sys.argv[2]			|
- | datasetPathDictionary 		| sys.argv[3]			|
- | # NBWEEKS 					| sys.argv[2]			|
- | LEN_TRICKLET 				| int(sys.argv[4])		|
- | ERROR_THRES 					| float(sys.argv[5])	|
- | # LEN_TRICKLET 				| NBWEEKS * 7			|
- | NB_ATOMS 					| int(sys.argv[6])		|
 
  | -alg  | -d  | 
  | -------- | -------- | 
- | dataset    | airq        | 
- | datasetPath  | bafu        | 
- | datasetPathDictionary   | chlorine    | 
- | LEN_TRICKLET     | climate     | 
- | ERROR_THRES  | drift10     |
- | NB_ATOMS   | electricity |
+ | dataset    | 1        | 
+ | datasetPath  | 2        | 
+ | datasetPathDictionary   | 3    | 
+ | LEN_TRICKLET     | 4     | 
+ | ERROR_THRES  | 5     |
+ | NB_ATOMS   | 6 |
 
 
 
