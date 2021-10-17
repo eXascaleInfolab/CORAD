@@ -37,8 +37,8 @@ ___
 ```
 
 ### Arguments
- | -arg  | -pos |
- | -------- | -------- | -------- |
+ | -alg  						|  -scen 				|
+ | -------- 					|  						|
  | dataset 						| sys.argv[1]			|
  | datasetPath 					| sys.argv[2]			|
  | datasetPathDictionary 		| sys.argv[3]			|
@@ -48,7 +48,27 @@ ___
  | # LEN_TRICKLET 				| NBWEEKS * 7			|
  | NB_ATOMS 					| int(sys.argv[6])		|
 
-
+ | -alg  | -d  |  -scen 
+ | -------- | -------- | -------- |
+ | cdrec    | airq        | miss_perc |
+ | dynammo  | bafu        | ts_length |
+ | grouse   | chlorine    | ts_nbr    |
+ | rosl     | climate     | miss_disj |
+ | softimp  | drift10     | miss_over |
+ | svdimp   | electricity | mcar      |
+ | svt      | meteo       | blackout  |
+ | stmvl    | temp        | *all*     |
+ | spirit   | bafu_red    |           |
+ | tenmf    | drift10_red |           |
+ | tkcm     | *all*       |           |
+ | trmf     |             |           |
+ | *all*    |             |           |
+ | -------- | -------- | -------- |
+ | New algs |             |           |
+ | -------- | -------- | -------- |
+ | ssa      |             |           |
+ | m-rnn    |             |           |
+ | brits    |             |           |
 
 
 
