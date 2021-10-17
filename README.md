@@ -61,11 +61,9 @@ python3 main.py 'Bafu' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayP
 
 python3 main.py 'PigAirwayPressure' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' 14 0.2 6
 
-
 python3 main.py 'Bafu' '../Datasets/bafu_normal.csv' '../Datasets/bafu_normal.csv' 14 0.4 1
 
 python3 main.py 'Bafu' '../Datasets/bafu_normal.csv' '../Datasets/bafu_normal.csv' 14 0.4 1
-
 
 python3 main.py 'Yoga' '../Datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv' '../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv' 20 0.4 4
 
