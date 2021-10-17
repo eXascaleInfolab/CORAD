@@ -3,6 +3,7 @@ import time
 from decimal import Decimal
 import statistics as s
 from scipy import stats
+from tqdm import tqdm
 
 
 def exportResults(name, dic):
@@ -24,8 +25,8 @@ def exportResults(name, dic):
 if __name__ == "__main__":
     import sys
 
-    print('Number of arguments:', len(sys.argv), 'arguments.')
-    print('Argument List:', str(sys.argv))
+    print("Number of arguments:", len(sys.argv), "arguments.")
+    print("Argument List:", str(sys.argv))
 
     for i in range(len(sys.argv)):
         print(i, sys.argv[i])
@@ -58,9 +59,9 @@ if __name__ == "__main__":
 
     # z-score normalizing the data
 
-    #df_data.round(6)
-    #print(df_data.head())
-    #df_data.to_csv('yoga_before.txt', header=False, float_format='%.6f', sep=' ', index=False)
+    # df_data.round(6)
+    # print(df_data.head())
+    # df_data.to_csv('yoga_before.txt', header=False, float_format='%.6f', sep=' ', index=False)
     # df_data.plot()
     # plt.draw()
 
@@ -73,18 +74,23 @@ if __name__ == "__main__":
 
     # CORRELATION COMPUTATION FOR EACH SEGMENT
 
-    print("Computing correlation ... ", end='')
+    print("Computing correlation ... ", end="")
     correlation_matrix = []
-    for i in range(int(df_data.shape[0] / LEN_TRICKLET)):
-        correlation_matrix.append(df_data[i * LEN_TRICKLET: (i + 1) * LEN_TRICKLET].corr())
+    for i in tqdm(range(int(df_data.shape[0] / LEN_TRICKLET))):
+        correlation_matrix.append(
+            df_data[i * LEN_TRICKLET : (i + 1) * LEN_TRICKLET].corr()
+        )
     print("done!")
 
     # DICTIONARY
 
-    print("Building the dictionary ... ", end='')
-    for i in range(1, int(len(time_series_data_dictionary))):
+    print("Building the dictionary ... ", end="")
+    for i in tqdm(range(1, int(len(time_series_data_dictionary)))):
         time_series_data_dictionary[0].extend(time_series_data_dictionary[i])
-    Dictionary = learnDictionary(time_series_data_dictionary[0], 200, 1, 150, datasetPath + '.pkl')
+    print("Learning dictionary")
+    Dictionary = learnDictionary(
+        time_series_data_dictionary[0], 200, 1, 150, datasetPath + ".pkl"
+    )
     # data = read_time_series('../Datasets/../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv')
     # tricklets = getTrickletsTS(data, 2, NBWEEKS)
     # print(len(tricklets[0]))
@@ -97,60 +103,100 @@ if __name__ == "__main__":
 
     # COMPRESSING THE DATA THE TRISTAN WAY
     start1 = time.time()
-    old_atoms_coded_tricklets, errors_old = compress_without_correlation(time_series_data, Dictionary, NB_ATOMS, 'omp')
+    old_atoms_coded_tricklets, errors_old = compress_without_correlation(
+        time_series_data, Dictionary, NB_ATOMS, "omp"
+    )
     end1 = time.time()
 
     # COMPRESSING THE DATA OUR WAY
     start2 = time.time()
-    atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(time_series_data,
-                                                                                        correlation_matrix, Dictionary,
-                                                                                        CORR_THRESHOLD, NB_ATOMS, 'omp')
+    atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(
+        time_series_data,
+        correlation_matrix,
+        Dictionary,
+        CORR_THRESHOLD,
+        NB_ATOMS,
+        "omp",
+    )
     end2 = time.time()
 
     dic = {}
 
     # PRINTING COMPUTATION TIME
-    print('Computation time without correlation: ', round(Decimal(end1 - start1), 2), 's')
-    print('Computation time with correlation: ', round(Decimal(end2 - start2), 2), 's')
+    print(
+        "Computation time without correlation: ", round(Decimal(end1 - start1), 2), "s"
+    )
+    print("Computation time with correlation: ", round(Decimal(end2 - start2), 2), "s")
 
     # dic['compression_time_without_correltion']= round(Decimal(end1 - start1), 2)
     # dic['compression_time_with_correltion']= round(Decimal(end2 - start2), 2)
-    dic['compression_time'] = (round(Decimal(end2 - start2), 2), round(Decimal(end1 - start1), 2))
+    dic["compression_time"] = (
+        round(Decimal(end2 - start2), 2),
+        round(Decimal(end1 - start1), 2),
+    )
 
     # print(corr_coded_tricklets)
 
     # PRINTING ERRORS
-    print('New error:', "{0:.5}".format(s.mean(errors_new)))
-    print('Old error:', "{0:.5}".format(s.mean(errors_old)))
+    print("New error:", "{0:.5}".format(s.mean(errors_new)))
+    print("Old error:", "{0:.5}".format(s.mean(errors_old)))
 
     # dic['error_new'] = "{0:.5}".format(s.mean(errors_new))
     # dic['error_old'] = "{0:.5}".format(s.mean(errors_old))
-    dic['error'] = ("{0:.5}".format(s.mean(errors_new)), "{0:.5}".format(s.mean(errors_old)))
+    dic["error"] = (
+        "{0:.5}".format(s.mean(errors_new)),
+        "{0:.5}".format(s.mean(errors_old)),
+    )
 
     # SAVE THE DATA FILES
-    save_object(time_series_data, 'outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
-    save_object(old_atoms_coded_tricklets, 'outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
-    save_object((atoms_coded_tricklets, corr_coded_tricklets),
-                'outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
+    save_object(
+        time_series_data, "outputs/compressed/originalData%s.out" % str(int(TIMESTAMP))
+    )
+    save_object(
+        old_atoms_coded_tricklets,
+        "outputs/compressed/old_out_pickle%s.out" % str(int(TIMESTAMP)),
+    )
+    save_object(
+        (atoms_coded_tricklets, corr_coded_tricklets),
+        "outputs/compressed/new_out_pickle%s.out" % str(int(TIMESTAMP)),
+    )
 
     import os
 
-    statinfo_old = os.stat('outputs/compressed/old_out_pickle%s.out' % str(int(TIMESTAMP)))
+    statinfo_old = os.stat(
+        "outputs/compressed/old_out_pickle%s.out" % str(int(TIMESTAMP))
+    )
     statinfo_old = statinfo_old.st_size
     # dic['size_old'] = statinfo.st_size
-    statinfo_new = os.stat('outputs/compressed/new_out_pickle%s.out' % str(int(TIMESTAMP)))
+    statinfo_new = os.stat(
+        "outputs/compressed/new_out_pickle%s.out" % str(int(TIMESTAMP))
+    )
     statinfo_new = statinfo_new.st_size
 
     # dic['size_new'] = statinfo.st_size
-    statinfo = os.stat('outputs/compressed/originalData%s.out' % str(int(TIMESTAMP)))
+    statinfo = os.stat("outputs/compressed/originalData%s.out" % str(int(TIMESTAMP)))
     statinfo = statinfo.st_size
 
-    dic['size_original'] = (statinfo, statinfo)
-    dic['compressed size'] = (statinfo_new, statinfo_old)
+    dic["size_original"] = (statinfo, statinfo)
+    dic["compressed size"] = (statinfo_new, statinfo_old)
 
-    dic['compression_ratio'] = (dic['size_original'][0] / (statinfo_new), dic['size_original'][0] / statinfo_old)
+    dic["compression_ratio"] = (
+        dic["size_original"][0] / (statinfo_new),
+        dic["size_original"][0] / statinfo_old,
+    )
 
-    exportResults('outputs/'+sys.argv[1]+'_'+sys.argv[4]+'_'+sys.argv[5]+'_'+sys.argv[6]+'.txt', dic)
+    exportResults(
+        "outputs/"
+        + sys.argv[1]
+        + "_"
+        + sys.argv[4]
+        + "_"
+        + sys.argv[5]
+        + "_"
+        + sys.argv[6]
+        + ".txt",
+        dic,
+    )
 
     # input("Execution done")
 

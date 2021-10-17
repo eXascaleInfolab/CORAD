@@ -19,4 +19,3 @@ python3 main.py 'SonyAIBORobotSurface2' '../Datasets/UCRArchive_2018/SonyAIBORob
 python3 main.py 'Wafer' '../Datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' '../Datasets/UCRArchive_2018/Wafer/Wafer_TRAIN.tsv' 14 0.4 6
 
 
-ACSF1
