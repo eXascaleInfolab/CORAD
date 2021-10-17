@@ -61,24 +61,6 @@ All results and plots will be added to `Results` folder. The accuracy results of
     $ python3 main.py 'Bafu' '../Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' '../Datasets/UCRArchive_2018/PigAirwayPressure/ PigAirwayPressure_TRAIN.tsv' 14 0.4 6
 ```
 
-
-### Parametrized execution
-
-- You can parametrize each algorithm using the command `-algx`. For example, you can run
-the svdimp algorithm with a reduction value of 4 on the drift dataset and by varying the sequence length as follows:
-
-```bash
-    $ mono TestingFramework.exe -algx svdimp 4 -d drift10 -scen ts_nbr
-```
-
-- If you want to run some algorithms with default parameters, and some with customized ones, you can use `-alg` and `-algx` together. For example, you can run stmvl algorithm with default parameter and cdrec algorithm with a reduction value of 4 on the airq dataset and by varying the sequence length as follows:
-
-```bash
-    $ mono TestingFramework.exe -alg stmvl -algx cdrec 4 -d airq -scen ts_nbr
-```
-
-**Remark**: The command `-algx` cannot be executed in group and thus must preceed the name of each algorithm.
-
 ___
 
 ## Contributors
