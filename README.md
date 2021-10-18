@@ -53,7 +53,7 @@ The ```corad.py``` script would be done with the following steps:
  | -------- | ------- | 
  | --dataset    |  Path towards the dataset (comma-separated-values, tabular-seperated-values, etc.) |
  | --trick     | Length of the tricklets used in the compression |
- | --err  | Threshold of the acceptable error resulted by the compression |
+ | --err  | Threshold of the acceptable loss resulted by the compression |
  | --nb_atoms   | Number of atoms used for the representation of each tricklet | 
 
 
@@ -68,9 +68,9 @@ python3 corad.py --dataset 'datasets/20160930_203718-2.csv' --len_tricklet 40 --
 
 python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
-python3 corad.py --dataset 'PigAirwayPressure' --datasetPath 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --len_tricklet 14 --error_thres 0.2 --nb_atoms 6
+python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --len_tricklet 14 --error_thres 0.2 --nb_atoms 6
 
-python3 corad.py --dataset 'Bafu' --datasetPath 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
+python3 corad.py --dataset 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
 ```
 ___

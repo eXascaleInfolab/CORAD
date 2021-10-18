@@ -44,8 +44,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = 'Script for running the compression')
     parser.add_argument('--dataset', nargs = '?', type = str, help = 'Dataset path', default = 'datasets/20160930_203718-2.csv')
     # parser.add_argument('--datasetPathDictionary', nargs = '?', type = str, help = 'Dataset path of the dictionary', default = '../datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv')
-    parser.add_argument('--len_tricklet', nargs = '?', type = int, help = 'Length of a tricklet', default = 40)
-    parser.add_argument('--error_thres', nargs = '?', type = float, help = 'Maximum level of threshold', default = 0.4)
+    parser.add_argument('--trick', nargs = '?', type = int, help = 'Length of a tricklet', default = 40)
+    parser.add_argument('--err', nargs = '?', type = float, help = 'Maximum level of threshold', default = 0.4)
     parser.add_argument('--nb_atoms', nargs = '?', type = int, help = 'Number of atoms', default = 4)
     #parser.add_argument('--export', nargs = '*', type = str, help = 'Path to file where to export the results', default = 'results.txt')
     parser.add_argument('--additional_arguments', nargs = '?', type = str, help = 'Additional arguments to be passed to the scripts', default = '')
@@ -56,8 +56,8 @@ if __name__ == "__main__":
 
     
         # datasetPathDictionary = args.datasetPathDictionary
-    len_tricklet = args.len_tricklet
-    error_thres = args.error_thres
+    trick = args.trick
+    err = args.err
     nb_atoms = args.nb_atoms
 
 
@@ -65,14 +65,14 @@ if __name__ == "__main__":
     # datasetPath = sys.argv[2]
     # datasetPathDictionary = sys.argv[3]
     # # NBWEEKS = sys.argv[2]
-    # len_tricklet = int(sys.argv[4])
-    # error_thres = float(sys.argv[5])
-    # # len_tricklet = NBWEEKS * 7
+    # trick = int(sys.argv[4])
+    # err = float(sys.argv[5])
+    # # trick = NBWEEKS * 7
     # nb_atoms = int(sys.argv[6])
     
 
     TIMESTAMP = time.time()
-    CORR_THRESHOLD = 1 - error_thres / 2
+    CORR_THRESHOLD = 1 - err / 2
 
     # READING THE DATASETS
 
@@ -101,16 +101,16 @@ if __name__ == "__main__":
 
     # CREATING TRICKLETS
 
-    time_series_data = dataframeToTricklets(df_data, len_tricklet)
-    time_series_data_dictionary = dataframeToTricklets(df_data_learning, len_tricklet)
+    time_series_data = dataframeToTricklets(df_data, trick)
+    time_series_data_dictionary = dataframeToTricklets(df_data_learning, trick)
 
     # CORRELATION COMPUTATION FOR EACH SEGMENT
 
     print("Computing correlation ... ", end="")
     correlation_matrix = []
-    for i in tqdm(range(int(df_data.shape[0] / len_tricklet))):
+    for i in tqdm(range(int(df_data.shape[0] / trick))):
         correlation_matrix.append(
-            df_data[i * len_tricklet : (i + 1) * len_tricklet].corr()
+            df_data[i * trick : (i + 1) * trick].corr()
         )
     print("done!")
 
@@ -225,9 +225,9 @@ if __name__ == "__main__":
         "results/"
         + str(ntpath.basename(dataset))
         + "_"
-        + str(len_tricklet)
+        + str(trick)
         + "_"
-        + str(error_thres)
+        + str(err)
         + "_"
         + str(nb_atoms)
         + ".txt",
