@@ -35,7 +35,7 @@ ___
 
 ### Arguments
 
- | param  |
+ | arg  |
  | -------- | 
  | --dataset    |
  | --datasetPath  | 
