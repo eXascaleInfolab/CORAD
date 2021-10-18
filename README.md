@@ -73,7 +73,7 @@ python3 main.py 'Wafer' 'Datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' 'Dataset
 ___
 
 ### Results
-All results and plots will be added to `outputs` folder. 
+All results and plots will be added to `outputs/` folder. 
 
 ___
 
