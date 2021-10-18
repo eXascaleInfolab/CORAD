@@ -30,8 +30,22 @@ ___
 
 
 ```bash
-    $ python3 main.py [arguments]
+    $ python3 corad.py [arguments]
 ```
+
+
+
+The ```corad.py``` script would be done with the following steps: 
+- Reading the dataset and z-normalisation. 
+- Creating the tricklets .
+- Correlation computation for each segment.
+- Dictionary learning .
+- Sparse coding the data with TRISTAN method.
+- Sparse coding the data with CORAD method.
+- Save the compressed data to the disk.
+- Compute the compression ratios. 
+- Print and export the time/errors/compression ratios results. 
+
 
 ### Arguments
 
@@ -39,7 +53,6 @@ ___
  | -------- | 
  | --dataset    |
  | --datasetPath  | 
- | --datasetPathDictionary   | 
  | --len_tricklet     | 
  | --error_thres  |
  | --nb_atoms   |
@@ -50,30 +63,21 @@ ___
 
 ```bash
 
-python3 main.py 
+python3 corad.py 
 
-python3 main.py --dataset 'Gas' --datasetPath 'datasets/20160930_203718-2.csv' --datasetPathDictionary '../datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv' --len_tricklet 40 --error_thres 0.4 --nb_atoms 4
+python3 corad.py --dataset 'datasets/20160930_203718-2.csv' --len_tricklet 40 --error_thres 0.4 --nb_atoms 4
 
-python3 main.py --dataset 'Bafu' --datasetPath 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
+python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
-python3 main.py --dataset 'PigAirwayPressure' --datasetPath 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.2 --nb_atoms 6
+python3 corad.py --dataset 'PigAirwayPressure' --datasetPath 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --len_tricklet 14 --error_thres 0.2 --nb_atoms 6
 
-python3 main.py --dataset 'Bafu' --datasetPath 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --datasetPathDictionary 'datasets/UCRArchive_2018/Wafer/Wafer_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
+python3 corad.py --dataset 'Bafu' --datasetPath 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
-python3 main.py 'Bafu' 'datasets/bafu_normal.csv' 'datasets/bafu_normal.csv' 14 0.4 1
-
-python3 main.py 'Yoga' 'datasets/UCRArchive_2018/Yoga/Yoga_TEST.tsv' 'datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv' 20 0.4 4
-
-python3 main.py 'ACSF1' 'datasets/UCRArchive_2018/ACSF1/ACSF1_TEST.tsv' 'datasets/UCRArchive_2018/ACSF1/ACSF1_TRAIN.tsv' 5 0.4 4
-
-python3 main.py 'SonyAIBORobotSurface2' 'datasets/UCRArchive_2018/SonyAIBORobotSurface2/SonyAIBORobotSurface2_TEST.tsv' 'datasets/UCRArchive_2018/SonyAIBORobotSurface2/SonyAIBORobotSurface2_TRAIN.tsv' 14 0.4 6
-
-python3 main.py 'Wafer' 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' 'datasets/UCRArchive_2018/Wafer/Wafer_TRAIN.tsv' 14 0.4 6
 ```
 ___
 
 ### Results
-All results and plots will be added to `outputs/` folder. 
+All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/` folder. 
 
 ___
 
