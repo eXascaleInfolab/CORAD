@@ -84,13 +84,21 @@ ___
 
 ## Citation
 ```bibtex
-@INPROCEEDINGS{9005580,
-  author={Khelifati, Abdelouahab and Khayati, Mourad and Cudré-Mauroux, Philippe},
-  booktitle={2019 IEEE International Conference on Big Data (Big Data)}, 
-  title={CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding}, 
-  year={2019},
-  volume={},
-  number={},
-  pages={2289-2298},
-  doi={10.1109/BigData47090.2019.9005580}}
+@inproceedings{DBLP:conf/bigdataconf/KhelifatiKC19,
+  author    = {Abdelouahab Khelifati and
+               Mourad Khayati and
+               Philippe Cudr{\'{e}}{-}Mauroux},
+  title     = {{CORAD:} Correlation-Aware Compression of Massive Time Series using
+               Sparse Dictionary Coding},
+  booktitle = {2019 {IEEE} International Conference on Big Data (Big Data), Los Angeles,
+               CA, USA, December 9-12, 2019},
+  pages     = {2289--2298},
+  publisher = {{IEEE}},
+  year      = {2019},
+  url       = {https://doi.org/10.1109/BigData47090.2019.9005580},
+  doi       = {10.1109/BigData47090.2019.9005580},
+  timestamp = {Fri, 09 Apr 2021 17:11:11 +0200},
+  biburl    = {https://dblp.org/rec/conf/bigdataconf/KhelifatiKC19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
 ```
