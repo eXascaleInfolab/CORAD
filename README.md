@@ -50,7 +50,7 @@ The ```corad.py``` script would be done with the following steps:
 ### Arguments
 
  | arg  |  Interpretation | 
- | -------- | 
+ | -------- | ------- | 
  | --dataset    |  Path towards the dataset (comma-separated-values, tabular-seperated-values, etc.) |
  | --trick     | Length of the tricklets used in the compression |
  | --err  | Threshold of the acceptable error resulted by the compression |
