@@ -1,10 +1,11 @@
-from library import *
+from library.library import *
 import time
 from decimal import Decimal
 import statistics as s
 from scipy import stats
 from tqdm import tqdm
 import argparse
+import sys
 
 def exportResults(name, dic):
     download_dir = name + ".csv"  # where you want the file to be downloaded to
@@ -23,7 +24,7 @@ def exportResults(name, dic):
 
 
 if __name__ == "__main__":
-    import sys
+    
 
     print("Number of arguments:", len(sys.argv), "arguments.")
     print("Argument List:", str(sys.argv))
@@ -33,8 +34,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description = 'Script for running the compression')
     parser.add_argument('--dataset', nargs = '?', type = str, help = 'Dataset name', default = 'Gas')
-    parser.add_argument('--datasetPath', nargs = '?', type = str, help = 'Dataset path name', default = 'Datasets/20160930_203718-2.csv')
-    parser.add_argument('--datasetPathDictionary', nargs = '?', type = str, help = 'Dataset path of the dictionary', default = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv')
+    parser.add_argument('--datasetPath', nargs = '?', type = str, help = 'Dataset path name', default = 'datasets/20160930_203718-2.csv')
+    parser.add_argument('--datasetPathDictionary', nargs = '?', type = str, help = 'Dataset path of the dictionary', default = '../datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv')
     parser.add_argument('--len_tricklet', nargs = '?', type = int, help = 'Length of a tricklet', default = 40)
     parser.add_argument('--error_thres', nargs = '?', type = float, help = 'Maximum level of threshold', default = 0.4)
     parser.add_argument('--nb_atoms', nargs = '?', type = int, help = 'Number of atoms', default = 4)
@@ -113,7 +114,7 @@ if __name__ == "__main__":
     Dictionary = learnDictionary(
         time_series_data_dictionary[0], 200, 1, 150, datasetPath + ".pkl"
     )
-    # data = read_time_series('../Datasets/../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv')
+    # data = read_time_series('../datasets/../datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv')
     # tricklets = getTrickletsTS(data, 2, NBWEEKS)
     # print(len(tricklets[0]))
     # Dictionary = learnDictionary(time_series_learning, 20, 1, 100)
@@ -262,8 +263,8 @@ if __name__ == "__main__":
 
     # df_data = pd.read_csv(datasetPath)
 
-    # datasetPath = '../Datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718.csv'
-    # datasetPath = '../Datasets/Sales_Transactions_Dataset_Weekly.csv'
+    # datasetPath = '../datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718.csv'
+    # datasetPath = '../datasets/Sales_Transactions_Dataset_Weekly.csv'
     # df_data = read_multiple_ts(datasetPath, 1, 53)
 
     # df = pd.DataFrame(np.random.randint(0, 10, size=(100000, 1)), columns=list('A'))
@@ -278,13 +279,13 @@ if __name__ == "__main__":
     #
     # df_data = df
 
-    # df_data = pd.read_csv('../Datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv', sep='\t')
+    # df_data = pd.read_csv('../datasets/UCRArchive_2018/Yoga/Yoga_TRAIN.tsv', sep='\t')
     # df.plot()
     # plt.show()
 
-    # save_object(df_data, '../Datasets/df_Yoga_TRAIN.tsv')
+    # save_object(df_data, '../datasets/df_Yoga_TRAIN.tsv')
 
-    # np.savetxt('../Datasets/df_20ts_exactcorrelation.txt', df_data.values, fmt='%d')
+    # np.savetxt('../datasets/df_20ts_exactcorrelation.txt', df_data.values, fmt='%d')
 
     # print (df_data)
 
@@ -299,9 +300,9 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     # Reading time series
-#     # data = read_time_series('../Datasets/Sales_Transactions_Dataset_Weekly.csv')
-#     # data = read_time_series('../Datasets/drift6_normal.txt')
-#     data = read_time_series('../Datasets/SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
+#     # data = read_time_series('../datasets/Sales_Transactions_Dataset_Weekly.csv')
+#     # data = read_time_series('../datasets/drift6_normal.txt')
+#     data = read_time_series('../datasets/SURF_CLI_CHN_MUL_DAY-TEM_50468-1960-2012-short.txt')
 #
 #     tricklets = getTrickletsTS(data, 2)
 #     tricklets1 = tricklets[0]
