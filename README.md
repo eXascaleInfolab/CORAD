@@ -6,7 +6,7 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/mastdatasets).
 - The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Results**](#results) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Contributors**](#contributors) | [**Execution examples**](#execution_examples) | [**Results**](#results) | [**Citation**](#citation)
 
 ___
 
