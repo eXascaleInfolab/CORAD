@@ -6,7 +6,7 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/mastDatasets).
 - The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Extension**](#extension)  | [**Contributors**](#contributors) | [**Results**](#results) | [**Citation**](#citation)
 
 ___
 
@@ -35,14 +35,14 @@ ___
 
 ### Arguments
 
- | alg  | pos  | 
- | -------- | -------- | 
- | dataset    | 1        | 
- | datasetPath  | 2        | 
- | datasetPathDictionary   | 3    | 
- | len_tricklet     | 4     | 
- | error_thres  | 5     |
- | nb_atoms   | 6 |
+ | param  |
+ | -------- | 
+ | --dataset    |
+ | --datasetPath  | 
+ | --datasetPathDictionary   | 
+ | --len_tricklet     | 
+ | --error_thres  |
+ | --nb_atoms   |
 
 
 ### Execution examples
