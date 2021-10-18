@@ -60,19 +60,35 @@ The ```corad.py``` script would be done with the following steps:
 ### Execution examples
 
 
-```bash
 
+
+
+1. Run CORAD and TRISTAN methods on the *Gas* dataset with default parameters (trick=40, err=0.4, atoms=4): 
+```bash 
 python3 corad.py 
-
-python3 corad.py --dataset 'datasets/20160930_203718-2.csv' --trick 40 --err 0.4 --atoms 4
-
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --trick 14 --err 0.4 --atoms 6
-
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --trick 14 --err 0.2 --atoms 6
-
-python3 corad.py --dataset 'datasets/UCRArchive_2018/Wafer/Wafer_TEST.tsv' --trick 14 --err 0.4 --atoms 6
-
 ```
+
+1. Run the TRISTAN and CORAD methods on the *PigAirwayPressure* dataset with default parameters (trick=40, err=0.4, atoms=4): 
+```bash 
+python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
+```
+
+1. Run the TRISTAN and CORAD methods on the *Gas* dataset with a custom error threshold and the default values for the rest of the parameters (trick=40, atoms=4): 
+```bash 
+python3 corad.py --err 0.1
+```
+
+1. Run the TRISTAN and CORAD methods on the *Gas* dataset with a custom number of atoms and the default values for the rest of the parameters (trick=40, err=0.4): 
+```bash 
+python3 corad.py --atoms 6
+```
+
+1. Run the TRISTAN and CORAD methods on the *Gas* dataset with a custom tricklets length and error threshold and the default value for the number of atoms: 
+```bash 
+python3 corad.py --trick 20 --err 0.2
+```
+
+
 ___
 
 ### Results
