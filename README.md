@@ -48,7 +48,6 @@ ___
 ### Execution examples
 
 
-1. Run a single algorithm (cdrec) on a single dataset (drift10) using one scenario (missing percentage)
 ```bash
 
 python3 main.py 
