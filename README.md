@@ -56,7 +56,6 @@ python3 main.py --dataset 'Gas' --datasetPath 'Datasets/20160930_203718-2.csv' -
 
 python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
-
 python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
 
 python3 main.py --dataset 'Bafu' --datasetPath 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --datasetPathDictionary 'Datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TRAIN.tsv' --len_tricklet 14 --error_thres 0.4 --nb_atoms 6
