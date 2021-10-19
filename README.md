@@ -81,7 +81,7 @@ python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --atoms 6
  ```
 
-4 . Compress the *PigAirwayPressure* dataset with a custom error threshold, number of atoms and tricklets length
+4 . Compress the *PigAirwayPressure* dataset with a custom tricklets length, error threshold and number of atoms 
 
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
