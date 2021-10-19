@@ -58,7 +58,7 @@ ___
 ### Results
 
 
-All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/{dataset}` folder. 
+All the results including the compressed data, runtime, accuracy error, and the compression ratios will be exported to `results/{dataset}` folder. 
 
 
 ### Execution Examples
