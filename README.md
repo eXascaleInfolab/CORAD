@@ -12,6 +12,7 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
     - Sparse coding of the data 
     - Compute the compression ratios
 
+- All the datasets used in the paper can be found [here](https://github.com/eXascaleInfolab/CORAD/tree/master/datasets/UCRArchive_2018).
 
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Results**](#results) | [**Contributors**](#contributors) | [**Citation**](#citation)
@@ -63,25 +64,25 @@ ___
 1. Compress the *PigAirwayPressure* dataset with default parameters (trick=40, err=0.4, atoms=4)
  
 ```bash 
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv'
+python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv'
 ```
 
 2 . Compress the *PigAirwayPressure* dataset with a custom error threshold
 
 ```bash 
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --err 0.1
+python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1
  ```
 
 3 . Compress the *PigAirwayPressure* dataset with a custom error threshold and number of atoms
 
 ```bash 
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --err 0.1 --atoms 6
+python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --atoms 6
  ```
 
 4 . Compress the *PigAirwayPressure* dataset with a custom error threshold, number of atoms and tricklets length
 
 ```bash 
-python3 corad.py --dataset 'datasets/UCRArchive_2018/PigAirwayPressure/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
+python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
  ```
 
 ___
