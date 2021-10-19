@@ -13,7 +13,6 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
     - Compute the compression ratios
 
 - All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/mastdatasets).
-- The full list of recovery scenarios can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/blob/master/TestingFramework/README.md).
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Results**](#results) | [**Contributors**](#contributors) | [**Citation**](#citation)
 
