@@ -92,7 +92,7 @@ python3 corad.py --trick 20 --err 0.2
 ___
 
 ### Results
-All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/` folder. 
+All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/{dataset}` folder. 
 
 ___
 
