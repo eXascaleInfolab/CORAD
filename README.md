@@ -30,7 +30,6 @@ ___
 ## Build
 
 - To install all the dependencies, run the following installation script:
-- 
 ```bash
     $ sh install.sh
 ```
