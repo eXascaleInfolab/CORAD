@@ -50,9 +50,9 @@ ___
 
  | arg  |  Interpretation | 
  | -------- | ------- | 
- | --dataset    |  Path towards the dataset (comma-separated-values, tabular-seperated-values, etc.) |
- | --trick     | Length of the tricklets used in the compression |
- | --err  | Threshold of the acceptable loss resulted by the compression |
+ | --dataset    |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
+ | --trick     | Length of the tricklets  |
+ | --err  | Threshold of the loss |
  | --atoms   | Number of atoms used for the representation of each tricklet | 
 
 
