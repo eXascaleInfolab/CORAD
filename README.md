@@ -15,7 +15,7 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
 - All the datasets used in the paper can be found [here](https://github.com/eXascaleInfolab/CORAD/tree/master/datasets/UCRArchive_2018).
 
 
-[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Results**](#results) | [**Contributors**](#contributors) | [**Citation**](#citation)
+[**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Contributors**](#contributors) | [**Citation**](#citation)
 
 ___
 
@@ -55,11 +55,13 @@ ___
  | --atoms   | Number of atoms used for the representation of each tricklet | 
 
 
-### Execution examples
+### Results
 
 
+All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/{dataset}` folder. 
 
 
+### Execution Examples
 
 1. Compress the *PigAirwayPressure* dataset with default parameters (trick=40, err=0.4, atoms=4)
  
@@ -84,12 +86,6 @@ python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --ato
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
  ```
-
-___
-
-### Results
-All the results (the compressed data, the runtimes, the errors and the compression ratios) will be exported to `results/{dataset}` folder. 
-
 ___
 
 ## Contributors
