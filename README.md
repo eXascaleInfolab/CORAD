@@ -12,10 +12,7 @@ Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019b
     - Sparse coding of the data 
     - Compute the compression ratios
 
-<<<<<<< HEAD
-=======
-- All the datasets used in this benchmark can be found [here](https://github.com/eXascaleInfolab/bench-vldb20/tree/mastdatasets).
->>>>>>> b7b9704d0b7ece6eab2d130c1bdbf4e57bd6ebaf
+
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Results**](#results) | [**Contributors**](#contributors) | [**Citation**](#citation)
 
