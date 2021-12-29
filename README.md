@@ -19,7 +19,7 @@ ___
 
 ## Prerequisites
 
-- Ubuntu 18/Ubuntu 20 (including the same distribution under WSL) and Mac OS.
+- Ubuntu 18 and 20 (including the same distribution under WSL), and Mac OS.
 - Clone this repo
 ___
 
