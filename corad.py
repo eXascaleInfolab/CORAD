@@ -13,9 +13,10 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 
-def exportResults(name, dic):
+def exportResults(name, dic, config):
     df = pd.DataFrame([dic])
     print(dic)
+    # 
     print (df.T)
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
@@ -26,7 +27,8 @@ def exportResults(name, dic):
             if exc.errno != errno.EEXIST:
                 raise
 
-    csv = open(download_dir, "w")
+    csv = open(download_dir, "a")
+    
 
     columnTitleRow = "title, CORAD, TRISTAN\n"
     csv.write(columnTitleRow)
@@ -36,7 +38,8 @@ def exportResults(name, dic):
         value1, value2 = dic[key]
         row = title + "," + str(value1) + "," + str(value2) + "\n"
         csv.write(row)
-
+    csv.write("\n\n\n")
+    csv.close()
 
 if __name__ == "__main__":
     
@@ -230,14 +233,14 @@ if __name__ == "__main__":
 
 
     exportResults(
-        "results/stats_"
+        "results/"
         + str(ntpath.basename(dataset))
-        + "_"
-        + str(trick)
-        + "_"
-        + str(err)
-        + "_"
-        + str(atoms)
         + ".txt",
         dic,
+        "# config: rmse_error=" 
+        + str(err)
+        + ", atoms ="
+        + str(atoms)
+        + ", trick ="
+        + str(trick),
     )
