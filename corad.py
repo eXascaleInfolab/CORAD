@@ -135,14 +135,14 @@ if __name__ == "__main__":
 
     # COMPRESSING THE DATA THE TRISTAN WAY
     start1 = time.time()
-    old_atoms_coded_tricklets, errors_old = compress_without_correlation(
+    TRISTAN_atoms_coded_tricklets, errors_TRISTAN = compress_without_correlation(
         time_series_data, Dictionary, atoms, "omp"
     )
     end1 = time.time()
 
     # COMPRESSING THE DATA OUR WAY
     start2 = time.time()
-    atoms_coded_tricklets, corr_coded_tricklets, errors_new = compress_with_correlation(
+    atoms_coded_tricklets, corr_coded_tricklets, errors_CORAD = compress_with_correlation(
         time_series_data,
         correlation_matrix,
         Dictionary,
@@ -156,12 +156,12 @@ if __name__ == "__main__":
         time_series_data, "results/compressed/originalData%s.out" % str(int(TIMESTAMP))
     )
     save_object(
-        old_atoms_coded_tricklets,
-        "results/compressed/old_out_pickle%s.out" % str(int(TIMESTAMP)),
+        TRISTAN_atoms_coded_tricklets,
+        "results/compressed/TRISTAN_out_pickle%s.out" % str(int(TIMESTAMP)),
     )
     save_object(
         (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed/new_out_pickle%s.out" % str(int(TIMESTAMP)),
+        "results/compressed/CORAD_out_pickle%s.out" % str(int(TIMESTAMP)),
     )
 
 
@@ -170,12 +170,12 @@ if __name__ == "__main__":
         time_series_data, "results/compressed/originalData.out"
     )
     save_object(
-        old_atoms_coded_tricklets,
-        "results/compressed/old_out_pickle.out",
+        TRISTAN_atoms_coded_tricklets,
+        "results/compressed/TRISTAN_out_pickle.out",
     )
     save_object(
         (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed/new_out_pickle.out",
+        "results/compressed/CORAD_out_pickle.out",
     )
 
     dic = {}
@@ -196,40 +196,40 @@ if __name__ == "__main__":
     # print(corr_coded_tricklets)
 
     # PRINTING ERRORS
-    print("New error:", "{0:.5}".format(s.mean(errors_new)))
-    print("Old error:", "{0:.5}".format(s.mean(errors_old)))
+    print("CORAD error:", "{0:.5}".format(s.mean(errors_CORAD)))
+    print("TRISTAN error:", "{0:.5}".format(s.mean(errors_TRISTAN)))
 
-    # dic['error_new'] = "{0:.5}".format(s.mean(errors_new))
-    # dic['error_old'] = "{0:.5}".format(s.mean(errors_old))
+    # dic['error_CORAD'] = "{0:.5}".format(s.mean(errors_CORAD))
+    # dic['error_TRISTAN'] = "{0:.5}".format(s.mean(errors_TRISTAN))
     dic["error"] = (
-        "{0:.5}".format(s.mean(errors_new)),
-        "{0:.5}".format(s.mean(errors_old)),
+        "{0:.5}".format(s.mean(errors_CORAD)),
+        "{0:.5}".format(s.mean(errors_TRISTAN)),
     )
 
     # COMPUTING COMPRESSION RATIOS
 
     import os
 
-    statinfo_old = os.stat(
-        "results/compressed/old_out_pickle%s.out" % str(int(TIMESTAMP))
+    statinfo_TRISTAN = os.stat(
+        "results/compressed/TRISTAN_out_pickle%s.out" % str(int(TIMESTAMP))
     )
-    statinfo_old = statinfo_old.st_size
-    # dic['size_old'] = statinfo.st_size
-    statinfo_new = os.stat(
-        "results/compressed/new_out_pickle%s.out" % str(int(TIMESTAMP))
+    statinfo_TRISTAN = statinfo_TRISTAN.st_size
+    # dic['size_TRISTAN'] = statinfo.st_size
+    statinfo_CORAD = os.stat(
+        "results/compressed/CORAD_out_pickle%s.out" % str(int(TIMESTAMP))
     )
-    statinfo_new = statinfo_new.st_size
+    statinfo_CORAD = statinfo_CORAD.st_size
 
-    # dic['size_new'] = statinfo.st_size
+    # dic['size_CORAD'] = statinfo.st_size
     statinfo = os.stat("results/compressed/originalData%s.out" % str(int(TIMESTAMP)))
     statinfo = statinfo.st_size
 
     dic["size_original"] = (statinfo, statinfo)
-    dic["compressed size"] = (statinfo_new, statinfo_old)
+    dic["compressed size"] = (statinfo_CORAD, statinfo_TRISTAN)
 
     dic["compression_ratio"] = (
-        dic["size_original"][0] / (statinfo_new),
-        dic["size_original"][0] / statinfo_old,
+        dic["size_original"][0] / (statinfo_CORAD),
+        dic["size_original"][0] / statinfo_TRISTAN,
     )
 
 
@@ -246,5 +246,4 @@ if __name__ == "__main__":
         + ".txt",
         dic,
     )
-
 
