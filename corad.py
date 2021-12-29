@@ -140,7 +140,7 @@ if __name__ == "__main__":
     )
     end1 = time.time()
 
-    # COMPRESSING THE DATA OUR WAY
+    # COMPRESSING THE DATA CORAD WAY
     start2 = time.time()
     atoms_coded_tricklets, corr_coded_tricklets, errors_CORAD = compress_with_correlation(
         time_series_data,
@@ -152,20 +152,9 @@ if __name__ == "__main__":
     )
     end2 = time.time()
     
-    save_object(
-        time_series_data, "results/compressed/originalData%s.out" % str(int(TIMESTAMP))
-    )
-    save_object(
-        TRISTAN_atoms_coded_tricklets,
-        "results/compressed/TRISTAN_out_pickle%s.out" % str(int(TIMESTAMP)),
-    )
-    save_object(
-        (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed/CORAD_out_pickle%s.out" % str(int(TIMESTAMP)),
-    )
 
+    ## SAVING DATA TO THE DISK
 
-    # SAVE THE DATA FILES
     save_object(
         time_series_data, "results/compressed/originalData.out"
     )
@@ -246,4 +235,5 @@ if __name__ == "__main__":
         + ".txt",
         dic,
     )
+
 
