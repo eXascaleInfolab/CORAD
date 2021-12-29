@@ -18,7 +18,7 @@ def exportResults(name, dic, config):
     print(dic)
 
     # 
-    df.rename(index={0: "TRISTAN", 1: "CORAD"})
+    df = df.rename(index={0: "TRISTAN", 1: "CORAD"})
     print (df)
 
     download_dir = name + ".csv"  # where you want the file to be downloaded to
@@ -31,10 +31,11 @@ def exportResults(name, dic, config):
                 raise
 
     csv = open(download_dir, "a")
-    csv.write(config)
+    csv.write(config + "\n")
     csv.close()
 
-    df.to_csv(download_dir, mode='a', header=true, index = true)
+    df.rename(index={0: "TRISTA", 1: "y", 2: "z"})
+    df.to_csv(download_dir, mode='a', header=True, index = True)
 
     csv = open(download_dir, "a")
     csv.write("\n\n\n")
