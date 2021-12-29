@@ -84,8 +84,8 @@ All the results including the compressed data, runtime, accuracy error, and the 
 The compressed data are exported using Python's pickle library into the `results/compressed_data/{dataset}/` folder and could be parsed as follows: 
 
 ```
-with open('out/cache/' +hashed_url, 'rb') as pickle_file:
-    content = pickle.load(pickle_file)
+with open('path/to/file, 'rb') as pickle_file:
+    data = pickle.load(pickle_file)
 ```
 ___
 
