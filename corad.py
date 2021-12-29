@@ -226,8 +226,8 @@ if __name__ == "__main__":
     dic["compressed_size_(kb)"] = [statinfo_CORAD / 1024, statinfo_TRISTAN / 1024]
 
     dic["compression_ratio"] = [
-        dic["size_original"][0] / (statinfo_CORAD  / 1024),
-        dic["size_original"][0] / statinfo_TRISTAN / 1024,
+        dic["size_original_(kb)"][0] / (statinfo_CORAD  / 1024),
+        dic["size_original_(kb)"][0] / statinfo_TRISTAN / 1024,
     ]
 
 
