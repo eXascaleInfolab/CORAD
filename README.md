@@ -21,8 +21,6 @@ ___
 
 - Ubuntu 18 or Ubuntu 20 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
 - Clone this repo
-- Install Python 3
-
 ___
 
 ## Build
