@@ -19,8 +19,9 @@ ___
 
 ## Prerequisites
 
+- Ubuntu 18 or Ubuntu 20 (including Ubuntu derivatives, e.g., Xubuntu) or the same distribution under WSL.
+- Clone this repo
 - Install Python 3
-- Clone this repo: `git clone https://github.com/eXascaleInfolab/CORAD.git`
 
 ___
 
