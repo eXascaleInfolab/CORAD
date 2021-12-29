@@ -14,8 +14,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def exportResults(name, dic):
-    df = pd.DataFrame([dict_])
-    print (df)
+    df = pd.DataFrame([dic])
+    print(dic)
+    print (df.T)
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
     if not os.path.exists(os.path.dirname(download_dir)):
