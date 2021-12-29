@@ -18,7 +18,7 @@ def exportResults(name, dic, config):
     print(dic)
 
     # 
-    df = df.rename(index={0: "TRISTAN", 1: "CORAD"})
+    df = df.rename(index={0: "CORAD", 1: "TRISTAN"})
     print (df)
 
     download_dir = name   # where you want the file to be downloaded to
@@ -239,8 +239,8 @@ if __name__ == "__main__":
         dic,
         "# config: rmse_error=" 
         + str(err)
-        + ", atoms ="
+        + ", atoms="
         + str(atoms)
-        + ", trick ="
+        + ", trick="
         + str(trick),
     )
