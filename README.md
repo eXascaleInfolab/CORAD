@@ -1,18 +1,15 @@
 # CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding
 
-CORAD is a new real-time technique to effectively compress time series streams. It relies on a dictionary-based technique that exploits the correlation across time series. In addition, CORAD allows to adjust the degree of accuracy that is acceptable depending on the use-case. Technical details can be found in our 
+- **Overview**: CORAD is a new real-time technique to effectively compress time series streams. It relies on a dictionary-based technique that exploits the correlation across time series. In addition, CORAD allows to adjust the degree of accuracy that is acceptable depending on the use-case. Technical details can be found in our 
 Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019bigdata.pdf">CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding </a>. 
 
-- CORAD performs the following steps:
-
-    - Normalize the input dataset using z-normalisation
-    - Create the tricklets
-    - Compute correlation for each segment
-    - Learn the dictionary learning
-    - Sparse coding of the data 
+- **Compression steps**:
+    - Normalize the input dataset and create the tricklets
+    - Compute the correlations for each segment
+    - Learn the dictionary and sparse code the data 
     - Compute the compression ratios
 
-- All the datasets used in the paper can be found [here](https://github.com/eXascaleInfolab/CORAD/tree/master/datasets/UCRArchive_2018).
+- **Datasets**: We use datasets from the UCR Time Series Classification Archive (UCR), the UCI Machine Learning Repository (UCI), and the Swiss Federal Office for the Environment(FOEN). All the datasets used in the paper can be found [here](https://github.com/eXascaleInfolab/CORAD/tree/master/datasets/UCRArchive_2018).
 
 
 [**Prerequisites**](#prerequisites) | [**Build**](#build) | [**Execution**](#execution) | [**Arguments**](#arguments)  | [**Contributors**](#contributors) | [**Citation**](#citation)
