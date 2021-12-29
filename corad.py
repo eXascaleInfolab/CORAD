@@ -200,17 +200,17 @@ if __name__ == "__main__":
     import os
 
     statinfo_TRISTAN = os.stat(
-        "results/compressed/TRISTAN_out_pickle.out" 
+        "results/compressed/TRISTAN_out_pickle.out"
     )
     statinfo_TRISTAN = statinfo_TRISTAN.st_size
     # dic['size_TRISTAN'] = statinfo.st_size
     statinfo_CORAD = os.stat(
-        "results/compressed/CORAD_out_pickle.out" 
+        "results/compressed/CORAD_out_pickle.out")
     )
     statinfo_CORAD = statinfo_CORAD.st_size
 
     # dic['size_CORAD'] = statinfo.st_size
-    statinfo = os.stat("results/compressed/originalData.out"
+    statinfo = os.stat("results/compressed/originalData.out")
     statinfo = statinfo.st_size
 
     dic["size_original"] = (statinfo, statinfo)
@@ -235,5 +235,3 @@ if __name__ == "__main__":
         + ".txt",
         dic,
     )
-
-
