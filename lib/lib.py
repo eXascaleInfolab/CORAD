@@ -6,7 +6,7 @@ import sys
 from luminol.anomaly_detector import AnomalyDetector
 from luminol.correlator import Correlator
 from decimal import Decimal
-from library.dictionary_learning import *
+from lib.dictionary_learning import *
 
 
 def getTrickletsTS(time_series, nbTS, nbweeks):

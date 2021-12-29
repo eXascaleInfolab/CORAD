@@ -1,4 +1,4 @@
-from library import *
+from lib import *
 import time
 from decimal import Decimal
 import statistics as s

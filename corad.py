@@ -1,4 +1,4 @@
-from library.library import *
+from lib.lib import *
 import time
 from decimal import Decimal
 import statistics as s
@@ -41,7 +41,8 @@ if __name__ == "__main__":
     for i in range(len(sys.argv)):
         print(i, sys.argv[i])
 
-    parser = argparse.ArgumentParser(description = 'Script for running the compression')
+    parser = argparse.ArgumentParser(description = 'Script for running the com
+        ssion')
     parser.add_argument('--dataset', nargs = '?', type = str, help = 'Dataset path', default = 'datasets/20160930_203718-2.csv')
     # parser.add_argument('--datasetPathDictionary', nargs = '?', type = str, help = 'Dataset path of the dictionary', default = '../datasets/archive_ics/gas-sensor-array-temperature-modulation/20160930_203718-2.csv')
     parser.add_argument('--trick', nargs = '?', type = int, help = 'Length of a tricklet', default = 40)

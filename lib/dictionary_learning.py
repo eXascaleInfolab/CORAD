@@ -1,4 +1,4 @@
-from library.input_output import *
+from lib.input_output import *
 
 # def learnDictionary(X, nbAtoms, alpha, n_iter):
 #     from sklearn.decomposition import MiniBatchDictionaryLearning
