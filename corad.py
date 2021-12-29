@@ -35,7 +35,7 @@ def exportResults(name, dic, config):
     csv.close()
 
     df.rename(index={0: "TRISTA", 1: "y", 2: "z"})
-    df.to_csv(download_dir, mode='a', sep='\t, header=True, index = True)
+    df.to_csv(download_dir, mode='a', sep='\t', header=True, index = True)
 
     csv = open(download_dir, "a")
     csv.write("\n\n\n")
