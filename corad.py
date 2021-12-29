@@ -9,6 +9,9 @@ import sys
 import ntpath
 import os
 
+import warnings
+warnings.filterwarnings("ignore")
+
 def exportResults(name, dic):
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
