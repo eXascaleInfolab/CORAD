@@ -180,16 +180,16 @@ if __name__ == "__main__":
 
     # PRINTING COMPUTATION TIME
     print(
-        "Computation time without correlation: ", round(Decimal(end1 - start1), 2), "s"
+        "Computation time without correlation: ", float(round(Decimal(end1 - start1), 2)), "s"
     )
-    print("Computation time with correlation: ", round(Decimal(end2 - start2), 2), "s")
+    print("Computation time with correlation: ", float(round(Decimal(end2 - start2), 2)), "s")
 
-    # dic['compression_time_without_correltion']= round(Decimal(end1 - start1), 2)
-    # dic['compression_time_with_correltion']= round(Decimal(end2 - start2), 2)
-    dic["compression_time"] = (
-        round(Decimal(end2 - start2), 2),
-        round(Decimal(end1 - start1), 2),
-    )
+    # dic['compression_time_without_correltion']= float(round(Decimal(end1 - start1), 2))
+    # dic['compression_time_with_correltion']= float(round(Decimal(end2 - start2), 2))
+    dic["compression_time"] = [
+        float(round(Decimal(end2 - start2), 2)),
+        float(round(Decimal(end1 - start1), 2)),
+    ]
 
     # print(corr_coded_tricklets)
 
@@ -199,10 +199,10 @@ if __name__ == "__main__":
 
     # dic['error_CORAD'] = "{0:.5}".format(s.mean(errors_CORAD))
     # dic['error_TRISTAN'] = "{0:.5}".format(s.mean(errors_TRISTAN))
-    dic["error"] = (
+    dic["error"] = [
         "{0:.5}".format(s.mean(errors_CORAD)),
         "{0:.5}".format(s.mean(errors_TRISTAN)),
-    )
+    ]
 
     # COMPUTING COMPRESSION RATIOS
 
@@ -222,13 +222,13 @@ if __name__ == "__main__":
     statinfo = os.stat("results/compressed_data/originalData.out")
     statinfo = statinfo.st_size
 
-    dic["size_original"] = (statinfo, statinfo)
-    dic["compressed size"] = (statinfo_CORAD, statinfo_TRISTAN)
+    dic["size_original"] = [statinfo, statinfo]
+    dic["compressed size"] = [statinfo_CORAD, statinfo_TRISTAN]
 
-    dic["compression_ratio"] = (
+    dic["compression_ratio"] = [
         dic["size_original"][0] / (statinfo_CORAD),
         dic["size_original"][0] / statinfo_TRISTAN,
-    )
+    ]
 
 
 
