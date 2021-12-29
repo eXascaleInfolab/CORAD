@@ -16,8 +16,11 @@ warnings.filterwarnings("ignore")
 def exportResults(name, dic, config):
     df = pd.DataFrame(dic)
     print(dic)
+
     # 
+    df.rename(index={0: "TRISTAN", 1: "CORAD"})
     print (df)
+
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
     if not os.path.exists(os.path.dirname(download_dir)):
@@ -28,16 +31,12 @@ def exportResults(name, dic, config):
                 raise
 
     csv = open(download_dir, "a")
-    
+    csv.write(config)
+    csv.close()
 
-    columnTitleRow = "title, CORAD, TRISTAN\n"
-    csv.write(columnTitleRow)
+    df.to_csv(download_dir, mode='a', header=true, index = true)
 
-    for key in dic.keys():
-        title = key
-        value1, value2 = dic[key]
-        row = title + "," + str(value1) + "," + str(value2) + "\n"
-        csv.write(row)
+    csv = open(download_dir, "a")
     csv.write("\n\n\n")
     csv.close()
 
