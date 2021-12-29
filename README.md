@@ -89,7 +89,7 @@ python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --er
 ___
 
 ## Contributors
-Abdelouahab Khelifati (abdel@exascale.info).
+Abdelouahab Khelifati (abdel@exascale.info) and Dr. Mourad Khayati (mkhayati@exascale.info)
 
 ___
 
