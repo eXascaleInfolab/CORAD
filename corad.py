@@ -21,7 +21,7 @@ def exportResults(name, dic, config):
     df = df.rename(index={0: "TRISTAN", 1: "CORAD"})
     print (df)
 
-    download_dir = name + ".csv"  # where you want the file to be downloaded to
+    download_dir = name   # where you want the file to be downloaded to
 
     if not os.path.exists(os.path.dirname(download_dir)):
         try:
@@ -35,7 +35,7 @@ def exportResults(name, dic, config):
     csv.close()
 
     df.rename(index={0: "TRISTA", 1: "y", 2: "z"})
-    df.to_csv(download_dir, mode='a', header=True, index = True)
+    df.to_csv(download_dir, mode='a', sep='\t, header=True, index = True)
 
     csv = open(download_dir, "a")
     csv.write("\n\n\n")
@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
     # dic['error_CORAD'] = "{0:.5}".format(s.mean(errors_CORAD))
     # dic['error_TRISTAN'] = "{0:.5}".format(s.mean(errors_TRISTAN))
-    dic["error"] = [
+    dic["rmse_error"] = [
         "{0:.5}".format(s.mean(errors_CORAD)),
         "{0:.5}".format(s.mean(errors_TRISTAN)),
     ]
@@ -222,12 +222,12 @@ if __name__ == "__main__":
     statinfo = os.stat("results/compressed_data/originalData.out")
     statinfo = statinfo.st_size
 
-    dic["size_original"] = [statinfo, statinfo]
-    dic["compressed size"] = [statinfo_CORAD, statinfo_TRISTAN]
+    dic["size_original_(kb)"] = [statinfo / 1024, statinfo / 1024]
+    dic["compressed_size_(kb)"] = [statinfo_CORAD / 1024, statinfo_TRISTAN / 1024]
 
     dic["compression_ratio"] = [
-        dic["size_original"][0] / (statinfo_CORAD),
-        dic["size_original"][0] / statinfo_TRISTAN,
+        dic["size_original"][0] / (statinfo_CORAD  / 1024),
+        dic["size_original"][0] / statinfo_TRISTAN / 1024,
     ]
 
 
