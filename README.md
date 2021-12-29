@@ -55,12 +55,6 @@ ___
  | --atoms   | Number of atoms used for the representation of each tricklet | 
 
 
-### Results
-
-
-All the results including the compressed data, runtime, accuracy error, and the compression ratios will be added to `results/{dataset}` folder. The results of the baseline TRISTAN technique will be also added.
-
-
 ### Execution Examples
 
 1. Compress the *PigAirwayPressure* dataset with default parameters (trick=40, err=0.4, atoms=4)
@@ -86,6 +80,11 @@ python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --ato
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
  ```
+ 
+### Results
+
+All the results including the compressed data, runtime, accuracy error, and the compression ratios will be added to `results/{dataset}` folder. The results of the baseline TRISTAN technique will be also added.
+
 ___
 
 ## Contributors
