@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     # COMPRESSING THE DATA THE TRISTAN WAY
     start1 = time.time()
-    TRISTAN_atoms_coded_tricklets, errors_TRISTAN = compress_withcorrelation(
+    TRISTAN_atoms_coded_tricklets, errors_TRISTAN = compress_without_correlation(
         time_series_data, Dictionary, atoms, "omp"
     )
     end1 = time.time()
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     )
     print("Computation time with correlation: ", round(Decimal(end2 - start2), 2), "s")
 
-    # dic['compression_time_withcorreltion']= round(Decimal(end1 - start1), 2)
+    # dic['compression_time_without_correltion']= round(Decimal(end1 - start1), 2)
     # dic['compression_time_with_correltion']= round(Decimal(end2 - start2), 2)
     dic["compression_time"] = (
         round(Decimal(end2 - start2), 2),
