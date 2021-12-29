@@ -37,14 +37,14 @@ ___
 
 
 ```bash
-    $ python3 corad.py [arguments]
+    $ python3 corad.py [args]
 ```
 
 
 
 ### Arguments
 
- | arg  |  Interpretation | 
+ | args  |  Interpretation | 
  | -------- | ------- | 
  | --dataset    |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
  | --trick     | Length of the tricklets  |
@@ -54,25 +54,25 @@ ___
 
 ### Execution Examples
 
-1. Compress the *PigAirwayPressure* dataset with default parameters (trick=40, err=0.4, atoms=4)
+1. Compress the *PigAirwayPressure* dataset with the default parameters (trick=40, err=0.4, atoms=4)
  
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv'
 ```
 
-2 . Compress the *PigAirwayPressure* dataset with a custom error threshold
+2 . Compress the *PigAirwayPressure* dataset with a customized error threshold
 
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1
  ```
 
-3 . Compress the *PigAirwayPressure* dataset with a custom error threshold and number of atoms
+3 . Compress the *PigAirwayPressure* dataset with customized error threshold, and number of atoms
 
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --atoms 6
  ```
 
-4 . Compress the *PigAirwayPressure* dataset with a custom tricklets length, error threshold and number of atoms 
+4 . Compress the *PigAirwayPressure* dataset with customized tricklets length, error threshold, and number of atoms 
 
 ```bash 
 python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
