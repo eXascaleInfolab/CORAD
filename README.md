@@ -47,7 +47,7 @@ ___
  | -------- | ------- | 
  | --dataset    |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
  | --trick     | Length of the tricklets  |
- | --err  | Threshold of the loss |
+ | --err  | Maximum authorised loss between the original data and the compression |
  | --atoms   | Number of atoms used for the representation of each tricklet | 
 
 
