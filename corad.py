@@ -151,18 +151,31 @@ if __name__ == "__main__":
         "omp",
     )
     end2 = time.time()
-
-    # SAVE THE DATA FILES
+    
     save_object(
-        time_series_data, "results/compressed/originalData.out")
+        time_series_data, "results/compressed/originalData%s.out" % str(int(TIMESTAMP))
     )
     save_object(
         old_atoms_coded_tricklets,
-        "results/compressed/old_out_pickle.out"),
+        "results/compressed/old_out_pickle%s.out" % str(int(TIMESTAMP)),
     )
     save_object(
         (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed/new_out_pickle.out"),
+        "results/compressed/new_out_pickle%s.out" % str(int(TIMESTAMP)),
+    )
+
+
+    # SAVE THE DATA FILES
+    save_object(
+        time_series_data, "results/compressed/originalData.out"
+    )
+    save_object(
+        old_atoms_coded_tricklets,
+        "results/compressed/old_out_pickle.out",
+    )
+    save_object(
+        (atoms_coded_tricklets, corr_coded_tricklets),
+        "results/compressed/new_out_pickle.out",
     )
 
     dic = {}
