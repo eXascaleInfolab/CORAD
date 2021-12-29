@@ -13,6 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 def exportResults(name, dic):
+    print(dic)
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
     if not os.path.exists(os.path.dirname(download_dir)):
@@ -23,7 +24,6 @@ def exportResults(name, dic):
                 raise
 
     csv = open(download_dir, "w")
-    # "w" indicates that you're writing strings to the file
 
     columnTitleRow = "title, CORAD, TRISTAN\n"
     csv.write(columnTitleRow)
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     # COMPRESSING THE DATA THE TRISTAN WAY
     start1 = time.time()
-    TRISTAN_atoms_coded_tricklets, errors_TRISTAN = compress_without_correlation(
+    TRISTAN_atoms_coded_tricklets, errors_TRISTAN = compress_withcorrelation(
         time_series_data, Dictionary, atoms, "omp"
     )
     end1 = time.time()
@@ -159,15 +159,15 @@ if __name__ == "__main__":
     ## SAVING DATA TO THE DISK
 
     save_object(
-        time_series_data, "results/compressed/originalData.out"
+        time_series_data, "results/compressed_data/originalData.out"
     )
     save_object(
         TRISTAN_atoms_coded_tricklets,
-        "results/compressed/TRISTAN_out_pickle.out",
+        "results/compressed_data/TRISTAN_pickle.out",
     )
     save_object(
         (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed/CORAD_out_pickle.out",
+        "results/compressed_data/CORAD_pickle.out",
     )
 
     dic = {}
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     )
     print("Computation time with correlation: ", round(Decimal(end2 - start2), 2), "s")
 
-    # dic['compression_time_without_correltion']= round(Decimal(end1 - start1), 2)
+    # dic['compression_time_withcorreltion']= round(Decimal(end1 - start1), 2)
     # dic['compression_time_with_correltion']= round(Decimal(end2 - start2), 2)
     dic["compression_time"] = (
         round(Decimal(end2 - start2), 2),
@@ -203,17 +203,17 @@ if __name__ == "__main__":
     import os
 
     statinfo_TRISTAN = os.stat(
-        "results/compressed/TRISTAN_out_pickle.out"
+        "results/compressed_data/TRISTAN_pickle.out"
     )
     statinfo_TRISTAN = statinfo_TRISTAN.st_size
     # dic['size_TRISTAN'] = statinfo.st_size
     statinfo_CORAD = os.stat(
-        "results/compressed/CORAD_out_pickle.out"
+        "results/compressed_data/CORAD_pickle.out"
     )
     statinfo_CORAD = statinfo_CORAD.st_size
 
     # dic['size_CORAD'] = statinfo.st_size
-    statinfo = os.stat("results/compressed/originalData.out")
+    statinfo = os.stat("results/compressed_data/originalData.out")
     statinfo = statinfo.st_size
 
     dic["size_original"] = (statinfo, statinfo)
