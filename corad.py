@@ -165,15 +165,15 @@ if __name__ == "__main__":
     ## SAVING DATA TO THE DISK
 
     save_object(
-        time_series_data, "results/compressed_data/originalData.out"
+        time_series_data, "results/compressed_data/" + str(ntpath.basename(dataset)) + "/originalData.out"
     )
     save_object(
         TRISTAN_atoms_coded_tricklets,
-        "results/compressed_data/TRISTAN_pickle.out",
+        "results/compressed_data/" + str(ntpath.basename(dataset)) + "/TRISTAN_pickle.out",
     )
     save_object(
         (atoms_coded_tricklets, corr_coded_tricklets),
-        "results/compressed_data/CORAD_pickle.out",
+        "results/compressed_data/" + str(ntpath.basename(dataset)) + "/CORAD_pickle.out",
     )
 
     dic = {}
@@ -209,17 +209,17 @@ if __name__ == "__main__":
     import os
 
     statinfo_TRISTAN = os.stat(
-        "results/compressed_data/TRISTAN_pickle.out"
+        "results/compressed_data/" + str(ntpath.basename(dataset)) + "/TRISTAN_pickle.out"
     )
     statinfo_TRISTAN = statinfo_TRISTAN.st_size
     # dic['size_TRISTAN'] = statinfo.st_size
     statinfo_CORAD = os.stat(
-        "results/compressed_data/CORAD_pickle.out"
+        "results/compressed_data/" + str(ntpath.basename(dataset)) + "/CORAD_pickle.out"
     )
     statinfo_CORAD = statinfo_CORAD.st_size
 
     # dic['size_CORAD'] = statinfo.st_size
-    statinfo = os.stat("results/compressed_data/originalData.out")
+    statinfo = os.stat("results/compressed_data/" + str(ntpath.basename(dataset)) + "/originalData.out")
     statinfo = statinfo.st_size
 
     dic["size_original_(kb)"] = [statinfo / 1024, statinfo / 1024]
@@ -227,7 +227,7 @@ if __name__ == "__main__":
 
     dic["compression_ratio"] = [
         dic["size_original_(kb)"][0] / (statinfo_CORAD  / 1024),
-        dic["size_original_(kb)"][0] / statinfo_TRISTAN / 1024,
+        dic["size_original_(kb)"][0] / (statinfo_TRISTAN / 1024),
     ]
 
 
