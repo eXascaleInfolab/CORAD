@@ -8,12 +8,14 @@ import argparse
 import sys
 import ntpath
 import os
+import pandas as pd
 
 import warnings
 warnings.filterwarnings("ignore")
 
 def exportResults(name, dic):
-    print(dic)
+    df = pd.DataFrame([dict_])
+    print (df)
     download_dir = name + ".csv"  # where you want the file to be downloaded to
 
     if not os.path.exists(os.path.dirname(download_dir)):
