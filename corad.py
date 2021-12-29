@@ -205,7 +205,7 @@ if __name__ == "__main__":
     statinfo_TRISTAN = statinfo_TRISTAN.st_size
     # dic['size_TRISTAN'] = statinfo.st_size
     statinfo_CORAD = os.stat(
-        "results/compressed/CORAD_out_pickle.out")
+        "results/compressed/CORAD_out_pickle.out"
     )
     statinfo_CORAD = statinfo_CORAD.st_size
 
