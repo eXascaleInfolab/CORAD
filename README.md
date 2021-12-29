@@ -58,7 +58,7 @@ ___
 ### Results
 
 
-All the results including the compressed data, runtime, accuracy error, and the compression ratios will be exported to `results/{dataset}` folder. The results of the baseline TRISTAN technique will be also added.
+All the results including the compressed data, runtime, accuracy error, and the compression ratios will be added to `results/{dataset}` folder. The results of the baseline TRISTAN technique will be also added.
 
 
 ### Execution Examples
