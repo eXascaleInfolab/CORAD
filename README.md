@@ -81,10 +81,10 @@ python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --er
 
 All the results including the compressed data, runtime, accuracy error, and the compression ratios will be added to `results/{dataset_name}.txt` file. The results of the baseline TRISTAN technique will be also added. 
 
-The compressed data are exported using Python's pickle library into the `results/compressed_data/{dataset}/` folder and could be parsed as follows: 
+The compressed data are exported using Python's pickle library into the `results/compressed_data/{dataset}/` folder and could be opened using the following command: 
 
 ```
-with open('path/to/file, 'rb') as pickle_file:
+with open('file_path, 'rb') as pickle_file:
     data = pickle.load(pickle_file)
 ```
 ___
