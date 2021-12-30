@@ -186,7 +186,7 @@ if __name__ == "__main__":
 
     # dic['compression_time_without_correltion']= float(round(Decimal(end1 - start1), 2))
     # dic['compression_time_with_correltion']= float(round(Decimal(end2 - start2), 2))
-    dic["compression_time"] = [
+    dic["runtime"] = [
         float(round(Decimal(end2 - start2), 2)),
         float(round(Decimal(end1 - start1), 2)),
     ]
