@@ -19,7 +19,7 @@ ___
 
 ## Prerequisites
 
-- Ubuntu 18 and 20 (including the same distribution under WSL), and Mac OS.
+- Ubuntu 18 and 20 (including the same distribution under WSL) or Mac OS.
 - Clone this repo
 ___
 
@@ -39,16 +39,14 @@ ___
     $ python3 corad.py [args]
 ```
 
-
-
 ### Arguments
 
  | args  |  Interpretation | 
- | -------- | ------- | 
- | --dataset    |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
+ | --------    | ------- | 
+ | --dataset   |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
  | --trick     | Length of the tricklets  |
- | --err  | Max loss between the original data and the compressed one |
- | --atoms   | Number of atoms used for the representation of each tricklet | 
+ | --err       | Max loss between the original data and the compressed one |
+ | --atoms     | Number of atoms used for the representation of each tricklet | 
 
 
 ### Execution Examples
