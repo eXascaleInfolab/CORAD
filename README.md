@@ -4,10 +4,10 @@
 Big Data 2019 paper:  <a href = "https://exascale.info/assets/pdf/khelifati2019bigdata.pdf">CORAD: Correlation-Aware Compression of Massive Time Series using Sparse Dictionary Coding </a>. 
 
 - **Compression steps**:
-    - Normalize the input dataset and create the tricklets
-    - Compute the correlations for each segment
-    - Learn the dictionary and sparse code the data 
-    - Compute the compression ratios
+    1. Create the tricklets
+    2. Compute the subsequence correlations
+    3. Learn the dictionary
+    4. Sparse code the data 
 
 - **Datasets**: We use datasets from the UCR Time Series Classification Archive (UCR), the UCI Machine Learning Repository (UCI), and the Swiss Federal Office for the Environment(FOEN). All the datasets used in the paper can be found [here](https://github.com/eXascaleInfolab/CORAD/tree/master/datasets/UCRArchive_2018).
 
