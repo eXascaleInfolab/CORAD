@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
     # dic['error_CORAD'] = "{0:.5}".format(s.mean(errors_CORAD))
     # dic['error_TRISTAN'] = "{0:.5}".format(s.mean(errors_TRISTAN))
-    dic["rmse_error"] = [
+    dic["rmse"] = [
         "{0:.5}".format(s.mean(errors_CORAD)),
         "{0:.5}".format(s.mean(errors_TRISTAN)),
     ]
