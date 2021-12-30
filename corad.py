@@ -121,7 +121,7 @@ if __name__ == "__main__":
         correlation_matrix.append(
             df_data[i * trick : (i + 1) * trick].corr()
         )
-    print("correlation computation \n done!")
+    print("correlation computation\ndone!")
 
     # DICTIONARY
 
