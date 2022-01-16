@@ -82,6 +82,7 @@ All the results including the compressed data, runtime, accuracy error, and the 
 The compressed data are exported using Python's pickle library into the `results/compressed_data/{dataset}/` folder and could be opened using the following command: 
 
 ```
+import pickle
 with open('file_path', 'rb') as pickle_file:
     data = pickle.load(pickle_file)
 ```
