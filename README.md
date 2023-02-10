@@ -43,10 +43,10 @@ ___
 
  | args  |  Interpretation | 
  | --------    | ------- | 
- | --dataset   |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
- | --trick     | Length of the tricklets  |
- | --err       | Max loss between the original data and the compressed one |
- | --atoms     | Number of atoms used for the representation of each tricklet | 
+ | -d   |  Name of the dataset (comma-separated-values, tabular-seperated-values, etc.) |
+ | -t     | Length of the tricklets  |
+ | -e       | Max loss between the original data and the compressed one |
+ | -a     | Number of atoms used for the representation of each tricklet | 
 
 
 ### Execution Examples
@@ -54,25 +54,25 @@ ___
 1. Compress the *PigAirwayPressure* dataset with the default parameters (trick=40, err=0.4, atoms=4)
  
 ```bash 
-python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv'
+python3 corad.py -d 'datasets/PigAirwayPressure_TEST.tsv'
 ```
 
 2 . Compress the *PigAirwayPressure* dataset with a customized error threshold
 
 ```bash 
-python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1
+python3 corad.py -d 'datasets/PigAirwayPressure_TEST.tsv' -e 0.1
  ```
 
 3 . Compress the *PigAirwayPressure* dataset with customized error threshold, and number of atoms
 
 ```bash 
-python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --err 0.1 --atoms 6
+python3 corad.py -d 'datasets/PigAirwayPressure_TEST.tsv' -e 0.1 -a 6
  ```
 
 4 . Compress the *PigAirwayPressure* dataset with customized tricklets length, error threshold, and number of atoms 
 
 ```bash 
-python3 corad.py --dataset 'datasets/PigAirwayPressure_TEST.tsv' --trick 20 --err 0.1 --atoms 6
+python3 corad.py -d 'datasets/PigAirwayPressure_TEST.tsv' -t 20 -e 0.1 -a 6
  ```
  
 ### Results
@@ -81,10 +81,14 @@ All the results including the compressed data, runtime, accuracy error, and the 
 
 The compressed data are exported using Python's pickle library into the `results/compressed_data/{dataset}/` folder and could be opened using the following command: 
 
+### Decompression
+
+In addition to data decompression in the main scripts, `decompression.py` allows to perform a decompression as follows: 
+
 ```
-import pickle
-with open('file_path', 'rb') as pickle_file:
-    data = pickle.load(pickle_file)
+python3 corad.py -d 'datasets/PigAirwayPressure_TEST.tsv'
+
+python3 decompress.py -d 'results/compressed_data/PigAirwayPressure_TEST.tsv/originalData.out'
 ```
 ___
 
