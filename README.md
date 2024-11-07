@@ -93,7 +93,8 @@ python3 decompress.py -d 'results/compressed_data/PigAirwayPressure_TEST.tsv/ori
 ___
 
 ## Contributors
-Abdelouahab Khelifati (abdel@exascale.info) and Dr. Mourad Khayati (mkhayati@exascale.info)
+- Abdelouahab Khelifati (abdel@exascale.info)
+- Dr. Mourad Khayati (mourad@khayati.unifr.ch)
 
 ___
 
