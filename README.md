@@ -27,9 +27,12 @@ ___
 
 - To install all the dependencies, run the following installation script:
 ```bash
-    $ sh install.sh
+sudo apt install python3.9
+sudo apt install python3.9-venv
+python3.9 -m venv venv
+source ./venv/bin/activate
+sh install.sh
 ```
-
 ___
 
 ## Execution
