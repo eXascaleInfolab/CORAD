@@ -613,8 +613,11 @@ def sparse_code_without_correlation(ts, Dictionary, nonzero_coefs, transform_alg
             temp.append(x)
         tricklets.append(temp)
 
+    print(f"Index: {index}, Tricklet Content: {tricklets[index]}")
     for index in range(len(result)):
-        tricklets[index] = np.array([np.array(xi) for xi in tricklets[index]])
+        #tricklets[index] = np.array([np.array(xi) for xi in tricklets[index] if isinstance(xi, (list, np.ndarray))])
+        tricklets[index] = np.array([np.array(xi, dtype=object) for xi in tricklets[index]], dtype=object)
+        #tricklets[index] = np.array([np.array(xi) for xi in tricklets[index]])
 
     return tricklets
 
@@ -663,7 +666,8 @@ def sparse_code_with_correlation(ts, correlation_matrix, Dictionary, nonzero_coe
             temp.append(x)
         tricklets.append(temp)
     for index in range(len(result)):
-        tricklets[index] = np.array([np.array(xi) for xi in tricklets[index]])
+        tricklets[index] = np.array([np.array(xi, dtype=object) for xi in tricklets[index]], dtype=object)
+#        tricklets[index] = np.array([np.array(xi) for xi in tricklets[index]])
 
     atoms_coded_tricklets = {}
     # atoms_coded_tricklets = [{} for i in range(len(ts))

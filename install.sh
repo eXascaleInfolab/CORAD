@@ -2,7 +2,11 @@ sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt -y install python3
+sudo apt install python3.9
+sudo apt install python3.9-venv
+python3.9 -m venv venv
+source ./venv/bin/activate
+#sudo apt -y install python3
 sudo apt-get -y --purge autoremove python3-pip
 sudo apt -y install python3-pip
 pip3 install matplotlib
